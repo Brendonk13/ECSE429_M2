@@ -1,4 +1,4 @@
-# ECSE429_M2: BDD test suite for todo manager API
+# BDD test suite for todo manager API
 
 Group: AutoProj 25
 
