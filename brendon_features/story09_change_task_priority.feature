@@ -1,3 +1,4 @@
+@fixture.create_priorities_HML
 Feature: Change task priority
 
 (User story) As a student, I want to adjust the priority of a task, to help better manage my time.
