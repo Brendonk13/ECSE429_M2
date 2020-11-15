@@ -2,7 +2,7 @@
 
 Group: AutoProj 25
 
-## Setup
+## Environment Setup
 > pip install -r requirements.txt
 
 ## Ensure 'todo manager API' is running on localhost:4567
