@@ -1,8 +1,9 @@
 from os import system
 from behave import fixture, use_fixture
-from requests import post
+import requests
 import socket
 import json
+from collections import defaultdict
 
 
 
@@ -24,31 +25,42 @@ def verify_service_is_running():
         raise ThingifierServiceInactive
 
 
-@fixture
-def create_priorities(context, priorities=None):
-    url = context.url + "projects/1/tasks"
-    for idx, priority in enumerate(priorities):
-        title = "project task: {}".format(idx)
-        description = "Priority: {} a good description".format(priority)
-        params = {"title": title, "description": description}
 
-        body = {'data': json.dumps(params)}
-        response = post(url, **body).json()
-        print('response to post projects/1/tasks: {}'.format(response))
-
-
-
+def after_all(context):
+    print('after all !!')
+    print(context.created_ids)
 
 def before_all(context):
     # start the server
     verify_service_is_running()
     context.url = "http://localhost:4567/"
     print('before all')
+    context.created_ids = defaultdict(list)
     # pass
 
+def after_scenario(context, scenario):
+    print(f'after scenario: {scenario}')
+    print()
+    print()
+    # don't iterate over this since I need to delete values in created_ids dict
+    the_created_ids = context.created_ids.copy()
+    for endpoint, IDs in the_created_ids.items():
+        base_url = context.url + '/' + endpoint + '/'
+        print(f'endpoint: {endpoint}, IDs I am about to delete: {IDs}')
+        while len(context.created_ids[endpoint]):
+            for idx, ID in enumerate(IDs):
+                print(f'    loop index: {idx}, ID: {ID}')
+                resource = base_url + ID
+                response = requests.delete(resource)
+                if response.status_code == 200:
+                    print(f'       response to delete: {response}')
+                    context.created_ids[endpoint].remove(ID)
+                    print(f'       no err after removing id: {ID}')
+                else:
+                    print(f'        HTTP Error code from delete request: {response.status_code}, resource: {resource}')
+            print(f'finished iterating over: {IDs}, leftover IDs (should be all gone): {context.created_ids[endpoint]}')
+            print()
 
-def before_tag(context, tag):
-    if tag == "fixture.create_priorities_HML":
-        # HML for High, Medium, Low
-        priorities = [ 'HIGH', 'MEDIUM', 'LOW' ]
-        use_fixture(create_priorities, context, priorities)
+    print(f'created_ids after a delete post scenario: {context.created_ids}')
+    print()
+    print()
