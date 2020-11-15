@@ -6,30 +6,30 @@ Feature: Remove a todo list for a class
   # Enter feature description here
 
   Scenario Outline: Delete a todo list for a class (Normal Flow)
-    Given there exists a class with name <title>
-    When user does a delete request to the server
+    Given there is a class with name <title>
+    When user does a delete request to the server with <title>
     Then class with name <title> is removed
     Examples:
       | title     |
       | Comp350   |
       | Ecse428   |
 
+
   Scenario Outline: Set a class as completed instead of deleting (Alternate Flow)
-    Given there exists a class with name <title>
-    And <isCompleted> as false
-    When user does a post request with <new_isCompleted> as true
-    Then class with name <title>
+    Given there exists a class with name <title> and <description> as false
+    When user does a post request with <new_description> as true
+    Then class with name <title> , <new_description> has a new description of NOT TAKING ANYMORE
     Examples:
-      | title     | isCompleted | new_isCompleted   |
-      | Comp350   | false       | true              |
-      | Ecse428   | false       | true              |
+      | title     | description                       | new_description                   |
+      | Comp360   | Comp class taking this year       | NOT TAKING ANYMORE                |
+      | Ecse458   | Ecse Class taking this year       | NOT TAKING ANYMORE                |
   Scenario Outline: Delete a class that doesn't exists (Error Flow)
-    Given there doesn't exist a class with name <title>
-    When user does a delete request to the server
-    Then server returns "error:404 Not Found"
+    Given there does not exist a class with id <id>
+    When user does a delete request with non existing <id>
+    Then server returns error:404 Not Found for that <id>
     Examples:
-      | title           |
-      | no_Class_exist  |
-      | class_not_found | 
+      | id           |
+      | 99999        |
+      | 000000       |
 
 
