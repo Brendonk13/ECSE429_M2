@@ -5,11 +5,12 @@ import json
 import re
 
 class Task:
-    def __init__(self, title, priority, ID):
+    def __init__(self, title, priority, ID, response):
         self.title = title
         # self.description = description
         self.priority = priority
         self.created_id = ID
+        self.response = response
 
     def __add__(self, other):
         # need cuz used in "after_scenario" for this feature
@@ -33,20 +34,22 @@ def create_task(context, title, description, priority):
     print(f'response to post {context.endpoint}: {response}')
 
     ID = response["id"]
-    task = Task(title, priority, ID)
+    task = Task(title, priority, ID, response)
     context.created_ids[context.endpoint].append(task)
-    return ID
+    return task
 
 
 def setup_environment(context, priorities):
     # create 3 priority levels by creating 3 tasks with different priorities
+    # context.init_env = []
     for idx, priority in enumerate(priorities):
-        title = "project task: {}".format(idx)
-        description = "Priority: {} a good description".format(priority)
+        title = "Priority: {}".format(priority)
+        description = "{} Priority Tasks".format(priority)
 
-        ID = create_task(context, title, description, priority)
+        task = create_task(context, title, description, priority)
+        # context.init_env.append(task)
         # post projects/id/tasks creates a todo also that we need to delete
-        context.created_ids['categories'].append(ID)
+        context.created_ids['categories'].append(task.created_id)
 # ===================== HELPERS ===================================================
 
 
@@ -65,10 +68,14 @@ def step_impl(context):
 
 @given('I have an existing valid task with title {title} and priority {oldPriority}')
 def step_impl(context, title, oldPriority):
-    description = "Priority: {}, a good description".format(oldPriority)
+    todo_id = 1
+    context.endpoint = "projects/{}/tasks".format(todo_id)
+    context.url = context.base_url + context.endpoint
+    description = "References Todo id:{}".format(todo_id)
 
-    ID = create_task(context, title, description, oldPriority)
-    context.created_ids['categories'].append(ID)
+    task = create_task(context, title, description, oldPriority)
+    # side effect of creating task is a todo is created
+    context.created_ids['todos'].append(task.created_id)
     # print(f'response ID: {response["id"]}')
 
 
@@ -82,6 +89,7 @@ def step_impl(context, newPriority, oldPriority):
 @when('I add the task to the category {newPriority}')
 def step_impl(context, newPriority):
     pass
+
 
 
 @then('the task should have category {newPriority}')
