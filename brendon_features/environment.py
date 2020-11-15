@@ -33,7 +33,7 @@ def after_all(context):
 def before_all(context):
     # start the server
     verify_service_is_running()
-    context.url = "http://localhost:4567/"
+    context.base_url = "http://localhost:4567/"
     print('before all')
     context.created_ids = defaultdict(list)
     # pass
@@ -45,7 +45,7 @@ def after_scenario(context, scenario):
     # don't iterate over this since I need to delete values in created_ids dict
     the_created_ids = context.created_ids.copy()
     for endpoint, IDs in the_created_ids.items():
-        base_url = context.url + '/' + endpoint + '/'
+        base_url = context.base_url + endpoint + '/'
         print(f'endpoint: {endpoint}, IDs I am about to delete: {IDs}')
         while len(context.created_ids[endpoint]):
             for idx, ID in enumerate(IDs):
@@ -55,7 +55,7 @@ def after_scenario(context, scenario):
                 if response.status_code == 200:
                     print(f'       response to delete: {response}')
                     context.created_ids[endpoint].remove(ID)
-                    print(f'       no err after removing id: {ID}')
+                    print(f'       list after delete: {context.created_ids[endpoint]}')
                 else:
                     print(f'        HTTP Error code from delete request: {response.status_code}, resource: {resource}')
             print(f'finished iterating over: {IDs}, leftover IDs (should be all gone): {context.created_ids[endpoint]}')
