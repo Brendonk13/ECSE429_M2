@@ -10,3 +10,6 @@ Group: AutoProj 25
 
 ## Run Behave tests for each feature/scenario
 > behave -v
+
+## Run Behave tests in random order
+> From root directory containing README.md: bash random_order_behave.sh
