@@ -15,4 +15,4 @@ Group: AutoProj 25
 > behave -i <story_feature_filename>.feature
 
 ## Option 3) Run all tests in random order
-> bash script
+> From root directory containing README.md: bash random_order_behave.sh
