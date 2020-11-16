@@ -1,48 +1,99 @@
-from behave import *
+# Step Definitions for Story 1: Categorize tasks by priority (story01_categorize_tasks_priority.feature)
 
-## ------------STORY/FEATURE 1: Categorize tasks by priority ----------------------------------------
-#scenario 1 - valid new task with priority
+from behave import *
+import requests
+
+# Helper functions
+def create_category(category_name):
+    #create a new category and returns the ID of this category
+    response = requests.post("http://localhost:4567/categories", json={"title": category_name})
+    return response.json()["id"]
+
+def get_priority_id(context, priority):
+    # return the id of the priority type
+    if (priority == 'HIGH'):
+        p = context.HIGH_id
+    elif (priority == 'MEDIUM'):
+        p = context.MEDIUM_id
+    elif (priority == 'LOW'):
+        p = context.LOW_id
+    else:
+        p = -1
+    return p
+
+def cleanup(context):
+    # cleanup for this story entails deleting the 3 created categories, and deleting any created tasks
+    if (context.task_ID):
+        requests.delete("http://localhost:4567/todos/" + context.task_ID)
+    if (context.HIGH_id):
+        requests.delete("http://localhost:4567/categories/" + context.HIGH_id)
+    if (context.MEDIUM_id):
+        requests.delete("http://localhost:4567/categories/" + context.MEDIUM_id)
+    if (context.LOW_id):
+        requests.delete("http://localhost:4567/categories/" + context.LOW_id)
+    return
+
+# -----------------
+# scenario 1 - valid new task with priority
 @given(u'I have three precreated priority levels in my system')
 def step_impl(context):
-    #client = Client("http://127.0.0.1:8000/soap/")
-    #context.response = client.Allocate(customer_first='Firstname',
-    #    customer_last='Lastname', colour='red')
-
-#@then('I should receive an OK SOAP response')
-#def step_impl(context):
-  # eq_(context.response['ok'], 1)Given 
+    context.HIGH_id = create_category('HIGH')
+    context.MEDIUM_id = create_category('MEDIUM')
+    context.LOW_id = create_category('LOW')
      
 @when(u'I create a new task with title {title} and priority level {priority}')
 def step_impl(context, title, priority):
-    #store task id in context.taskID
+    # create new task
+    task = requests.post("http://localhost:4567/todos", json={"title": title})
+    context.task_ID = task.json()["id"] #new todo item's id
+
+    # add to category
+    p = get_priority_id(context,priority)
+    context.response = requests.post("http://localhost:4567/todos/"+ context.task_ID + '/categories', json={"id": p})
 
 @then(u'the task should have category {priority}')
 def step_impl(context, priority):
+    # check that category was added correctly
+    assert(context.response.status_code == 201)
+    response = requests.get("http://localhost:4567/todos/"+ context.task_ID + '/categories').json()
+    assert(priority == response["categories"][0]["title"])
+
+    #clean up: delete categories and tasks created
+    cleanup(context)
 
 #scenario 2 - valid existing task with priority
 @given(u'I have an existing valid task with title {title}')
 def step_impl(context, title):
-    # create task with title
-    #store id in context.taskID
+     # create new task
+    task = requests.post("http://localhost:4567/todos", json={"title": title})
+    context.task_ID = task.json()["id"] #new todo item's id
+
     
 @when(u'I add the task to the category {priority}')
 def step_impl(context, priority):
+    p = get_priority_id(context,priority)
+    context.response = requests.post("http://localhost:4567/todos/"+ context.task_ID + '/categories', json={"id": p})
 
 
-# scenario 3 - invalid task
-@given(u'I do not have an existing valid task with id {invalidID}')
-def step_impl(context, invalidID):
-
-@then(u'Then there should be an error returned from the system')
-def step_impl(context):
-    # check context.response for error code
-
-@then(u'there should be no task with id {invalidID}')
-def step_impl(context, invalidID):
-   
-# scenario 4 - invalid priority
+# scenario 3 - invalid priority
 @given(u'{priority} is not the name of an existing category')
 def step_impl(context, priority):
+    categories = requests.get("http://localhost:4567/categories").json()['categories']
+    for i in range(len(categories)):
+        assert(priority != categories[i]['title'])
 
-@then(u'the task should not have category {priority})
+@then(u'there should be an error returned from the system')
+def step_impl(context):
+    # check context.response for error code
+    assert(context.response.status_code == 404)
+
+@then(u'the task should not have category {priority}')
 def step_impl(context, priority):
+    response = requests.get("http://localhost:4567/todos/"+ context.task_ID + '/categories').json()
+    categories = response["categories"]
+    if (categories):
+        for i in range (len(categories)):
+            assert(priority != categories[i]["title"])
+
+    #clean up: delete categories and tasks created
+    cleanup(context)
