@@ -6,11 +6,11 @@ Feature: Change task priority
 
 
 Scenario Outline: (Normal flow) Update a valid task with a new priority
-    Given I have three precreated priority levels in my system
-        And I have an existing valid task with title <title> and priority <oldPriority>
-        And the new priority <newPriority> is not the same as the old priority <oldPriority>
-        When I add the task to the category <newPriority>
-        Then the task should have category <newPriority>
+    Given Three priority levels already exist in my system
+        And There exists a task with title <title> and priority <oldPriority>
+        And The new priority <newPriority> is different from the old priority <oldPriority>
+        When I add the relevant task to the category <newPriority>
+        Then The task should now have category <newPriority>
 
     Examples: Tasks
         | title | oldPriority | newPriority |
@@ -20,11 +20,11 @@ Scenario Outline: (Normal flow) Update a valid task with a new priority
 
 
 Scenario Outline: (Alternate flow) Update a valid task with the same priority
-    Given I have three precreated priority levels in my system
-        And I have an existing valid task with title <title> and priority <oldPriority>
-        And the new priority <newPriority> is the same as the old priority <oldPriority>
-        When I add the task to the category <newPriority>
-        Then the task should have category <newPriority>
+    Given Three priority levels already exist in my system
+        And There exists a task with title <title> and priority <oldPriority>
+        And The new priority <newPriority> is the same as the old priority <oldPriority>
+        When I add the relevant task to the category <newPriority>
+        Then The task should now have category <newPriority>
 
     Examples:
         | title | oldPriority | newPriority |
@@ -34,16 +34,16 @@ Scenario Outline: (Alternate flow) Update a valid task with the same priority
 
 
 
-# Scenario Outline: (Error flow) Update a valid task with negative priority
-#     # NOTE: test that this actually registers as an error first !
-#     Given I have three precreated priority levels in my system
-#         And I have an existing valid task with title <title> and priority <oldPriority>
-#         And the new priority <newPriority> is the same as the old priority <oldPriority>
-#         When I add the task to the category <newPriority>
-#         Then the task should have category <newPriority>
-# 
-#     Examples:
-#         | title | oldPriority | newPriority |
-#         | task1 | HIGH        | HIGH        |
-#         | task2 | MEDIUM      | MEDIUM      |
-#         | task3 | LOW         | LOW         |
+Scenario Outline: (Error flow) Update a valid task with non-existant priority
+    # NOTE: test that this actually registers as an error first !
+    Given Three priority levels already exist in my system
+        And There exists a task with title <title> and priority <oldPriority>
+        And the new priority for this task: <newPriority> does not exist
+        When I add the task to the non-existant category <newPriority>
+        Then task should not be added to the category <newPriority>
+
+    Examples:
+        | title | oldPriority | newPriority |
+        | task1 | HIGH        | nope_1      |
+        | task2 | MEDIUM      | nope_2      |
+        | task3 | LOW         | nope_3      |

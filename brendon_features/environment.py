@@ -5,8 +5,6 @@ import socket
 from collections import defaultdict
 import logging
 import os
-import sys
-sys.path.append('../helpers')
 from helpers.story_9 import Task, create_task, setup_context_url_stuff
 
 
@@ -63,6 +61,8 @@ def before_feature(context, feature):
         priorities = [ 'HIGH', 'MEDIUM', 'LOW' ]
         setup_story9_environment(context, priorities)
         context.dont_delete_after_scenario = ['categories']
+        logging.info('setup feature story 9 completed')
+        logging.info(f'type init_env: {type(context.init_env[0])}')
 
 
 def after_feature(context, feature):
