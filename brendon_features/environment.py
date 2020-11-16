@@ -45,24 +45,36 @@ def before_all(context):
     context.base_url = "http://localhost:4567/"
     # print('before all')
     context.created_ids = defaultdict(list)
-    # pass
+
+
+def log_file_name(feature_name):
+    if feature_name == 'story09_change_task_priority.feature':
+        return 'story9.log'
+    if feature_name == 'story07_query_incomplete_tasks.feature':
+        return 'story7.log'
 
 
 def before_feature(context, feature):
+    logging.basicConfig(
+            filename=log_file_name(feature.filename),
+            filemode='w',
+            level=logging.INFO,
+            format='%(name)s - %(levelname)s - %(message)s',
+    )
+
     if feature.filename == 'story09_change_task_priority.feature':
         # print('before correct feature!!!')
-        logging.basicConfig(
-                filename='story9.log',
-                filemode='w',
-                level=logging.INFO,
-                format='%(name)s - %(levelname)s - %(message)s',
-        )
         setup_context_url_stuff(context, 'categories')
         priorities = [ 'HIGH', 'MEDIUM', 'LOW' ]
         setup_story9_environment(context, priorities)
         context.dont_delete_after_scenario = ['categories']
         logging.info('setup feature story 9 completed')
         logging.info(f'type init_env: {type(context.init_env[0])}')
+
+    if feature.filename == 'story07_query_incomplete_tasks.feature':
+        # need this for compatibility with cleanup_created_ids function
+        context.dont_delete_after_scenario = []
+
 
 
 def after_feature(context, feature):
@@ -73,7 +85,10 @@ def after_feature(context, feature):
 
 
 def after_scenario(context, scenario):
-    if scenario.filename == 'story09_change_task_priority.feature':
+    if scenario.filename in (
+                'story09_change_task_priority.feature',
+                'story07_query_incomplete_tasks.feature'):
+
         logging.info(f'after scenario: {scenario}')
         # don't iterate over this since I need to delete values in created_ids dict
         the_created_ids = context.created_ids.copy()

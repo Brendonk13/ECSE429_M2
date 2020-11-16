@@ -1,0 +1,87 @@
+root - INFO - before checking project exists
+root - INFO - after checking project exists, response: [{'id': '1', 'title': 'Office Work', 'completed': 'false', 'active': 'false', 'description': '', 'tasks': [{'id': '1'}, {'id': '2'}]}]
+root - INFO - before creating incomplete task with params: {'title': 'task1', 'doneStatus': False}
+root - INFO - after post request, response: <Response [201]>
+root - INFO - response_body: {'id': '30', 'title': 'task1', 'doneStatus': 'false', 'description': '', 'tasksof': [{'id': '1'}]}
+root - INFO - incomplete task created_id: 30
+root - INFO - all incomplete tasks: [{'id': '30', 'title': 'task1', 'doneStatus': 'false', 'description': '', 'tasksof': [{'id': '1'}]}, {'id': '1', 'title': 'scan paperwork', 'doneStatus': 'false', 'description': '', 'tasksof': [{'id': '1'}], 'categories': [{'id': '1'}]}, {'id': '2', 'title': 'file paperwork', 'doneStatus': 'false', 'description': '', 'tasksof': [{'id': '1'}]}]
+root - INFO - 
+root - INFO - 
+root - INFO - found the incomplete task
+root - INFO - doneStatus is false!
+root - INFO - after scenario: <Scenario "(Normal flow) Query all incomplete tasks -- @1.1 Incomplete Tasks">
+root - INFO - endpoint: projects/1/tasks, IDs I am about to delete: ['30']
+root - INFO -     loop index: 0, ID: 30
+root - INFO -        response to delete: <Response [200]>
+root - INFO -        list after delete: []
+root - INFO - finished iterating over: [], leftover IDs (should be all gone): []
+root - INFO - 
+root - INFO - endpoint: todos, IDs I am about to delete: ['30']
+root - INFO -     loop index: 0, ID: 30
+root - INFO -        response to delete: <Response [200]>
+root - INFO -        list after delete: []
+root - INFO - finished iterating over: [], leftover IDs (should be all gone): []
+root - INFO - 
+root - INFO - created_ids after a delete post scenario: defaultdict(<class 'list'>, {'projects/1/tasks': [], 'todos': []})
+root - INFO - ====================== done scenario ===========================
+root - INFO - 
+root - INFO - 
+root - INFO - 
+root - INFO - before checking project exists
+root - INFO - after checking project exists, response: [{'id': '1', 'title': 'Office Work', 'completed': 'false', 'active': 'false', 'description': '', 'tasks': [{'id': '1'}, {'id': '2'}]}]
+root - INFO - before creating incomplete task with params: {'title': 'task2', 'doneStatus': False}
+root - INFO - after post request, response: <Response [201]>
+root - INFO - response_body: {'id': '31', 'title': 'task2', 'doneStatus': 'false', 'description': '', 'tasksof': [{'id': '1'}]}
+root - INFO - incomplete task created_id: 31
+root - INFO - all incomplete tasks: [{'id': '1', 'title': 'scan paperwork', 'doneStatus': 'false', 'description': '', 'tasksof': [{'id': '1'}], 'categories': [{'id': '1'}]}, {'id': '2', 'title': 'file paperwork', 'doneStatus': 'false', 'description': '', 'tasksof': [{'id': '1'}]}, {'id': '31', 'title': 'task2', 'doneStatus': 'false', 'description': '', 'tasksof': [{'id': '1'}]}]
+root - INFO - 
+root - INFO - 
+root - INFO - found the incomplete task
+root - INFO - doneStatus is false!
+root - INFO - after scenario: <Scenario "(Normal flow) Query all incomplete tasks -- @1.2 Incomplete Tasks">
+root - INFO - endpoint: projects/1/tasks, IDs I am about to delete: ['31']
+root - INFO -     loop index: 0, ID: 31
+root - INFO -        response to delete: <Response [200]>
+root - INFO -        list after delete: []
+root - INFO - finished iterating over: [], leftover IDs (should be all gone): []
+root - INFO - 
+root - INFO - endpoint: todos, IDs I am about to delete: ['31']
+root - INFO -     loop index: 0, ID: 31
+root - INFO -        response to delete: <Response [200]>
+root - INFO -        list after delete: []
+root - INFO - finished iterating over: [], leftover IDs (should be all gone): []
+root - INFO - 
+root - INFO - created_ids after a delete post scenario: defaultdict(<class 'list'>, {'projects/1/tasks': [], 'todos': []})
+root - INFO - ====================== done scenario ===========================
+root - INFO - 
+root - INFO - 
+root - INFO - 
+root - INFO - before checking project exists
+root - INFO - after checking project exists, response: [{'id': '1', 'title': 'Office Work', 'completed': 'false', 'active': 'false', 'description': '', 'tasks': [{'id': '1'}, {'id': '2'}]}]
+root - INFO - before creating incomplete task with params: {'title': 'task3', 'doneStatus': False}
+root - INFO - after post request, response: <Response [201]>
+root - INFO - response_body: {'id': '32', 'title': 'task3', 'doneStatus': 'false', 'description': '', 'tasksof': [{'id': '1'}]}
+root - INFO - incomplete task created_id: 32
+root - INFO - all incomplete tasks: [{'id': '1', 'title': 'scan paperwork', 'doneStatus': 'false', 'description': '', 'tasksof': [{'id': '1'}], 'categories': [{'id': '1'}]}, {'id': '2', 'title': 'file paperwork', 'doneStatus': 'false', 'description': '', 'tasksof': [{'id': '1'}]}, {'id': '32', 'title': 'task3', 'doneStatus': 'false', 'description': '', 'tasksof': [{'id': '1'}]}]
+root - INFO - 
+root - INFO - 
+root - INFO - found the incomplete task
+root - INFO - doneStatus is false!
+root - INFO - after scenario: <Scenario "(Normal flow) Query all incomplete tasks -- @1.3 Incomplete Tasks">
+root - INFO - endpoint: projects/1/tasks, IDs I am about to delete: ['32']
+root - INFO -     loop index: 0, ID: 32
+root - INFO -        response to delete: <Response [200]>
+root - INFO -        list after delete: []
+root - INFO - finished iterating over: [], leftover IDs (should be all gone): []
+root - INFO - 
+root - INFO - endpoint: todos, IDs I am about to delete: ['32']
+root - INFO -     loop index: 0, ID: 32
+root - INFO -        response to delete: <Response [200]>
+root - INFO -        list after delete: []
+root - INFO - finished iterating over: [], leftover IDs (should be all gone): []
+root - INFO - 
+root - INFO - created_ids after a delete post scenario: defaultdict(<class 'list'>, {'projects/1/tasks': [], 'todos': []})
+root - INFO - ====================== done scenario ===========================
+root - INFO - 
+root - INFO - 
+root - INFO - 

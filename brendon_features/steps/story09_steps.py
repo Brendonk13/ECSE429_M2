@@ -1,7 +1,6 @@
 from behave import *
 # NOTE: conversion from feature ie: "Given I have three precreated priority levels in my system" IS A MACRO REGISTER W
 import requests
-import re
 import logging
 from helpers.story_9 import Task, create_task, setup_context_url_stuff, todo_id_from_response, category_id_from_priority, all_categories_response, CategoryDoesNotExist
 
