@@ -1,49 +1,15 @@
 from behave import *
 # NOTE: conversion from feature ie: "Given I have three precreated priority levels in my system" IS A MACRO REGISTER W
 import requests
-import json
 import re
 import logging
+import sys
+sys.path.append('../helpers')
+from helpers.story_9 import Task, create_task, setup_context_url_stuff
 
 
 
-class Task:
-    def __init__(self, title, priority, ID, response, description, url):
-        self.title = title
-        # self.description = description
-        self.priority = priority
-        self.created_id = ID
-        self.response = response
-        self.description = description
-        self.url = url
 
-    def __add__(self, other):
-        # need cuz used in "after_scenario" for this feature
-        return self.created_id + other
-
-    def __radd__(self, other):
-        return other + self.created_id
-
-    def __repr__(self):
-        return self.created_id
-
-
-
-# default None for setup_environment fxn
-# it doesn't actually create a task but does everything else
-def create_task(context, title, description, priority, todo_id=None):
-    # create a task object storing basic response information
-    # and return the ID of the object just created
-    params = {"title": title, "description": description}
-    body = {'data': json.dumps(params)}
-    response = requests.post(context.url, **body)
-    assert response.ok
-    response_body = response.json()
-    logging.info(f'response to post {context.endpoint}: {response_body}')
-
-    ID = response_body["id"]
-    task = Task(title, priority, ID, response_body, description, context.url)
-    return task
 
 
 def category_id_from_priority(context, priority):
@@ -58,24 +24,50 @@ def get_todo_id(response, obj_ID):
             return category['todos'][-1]['id']
 
 
-def setup_context_url_stuff(context, endpoint):
-    context.endpoint = endpoint
-    context.url = context.base_url + endpoint
+def create_todo_with_priority(context, priority, title):
+    description = '{} Priority Tasks'.format(priority)
+
+    priority_category_id = category_id_from_priority(context, priority)
+    endpoint = 'categories/{}/todos'.format(priority_category_id)
+    setup_context_url_stuff(context, endpoint)
+
+    task = create_task(context, title, description, priority)
+
+    # add resources that need to be deleted to restore state
+    response = requests.get(context.base_url + 'categories').json()
+    todo_id = get_todo_id(response, priority_category_id)
+    # todo_id = task.response['id']
+    endpoint = 'categories/{}/todos'.format(priority_category_id)
+    # context.created_ids[endpoint].append(task)
+    # context.prev_task = task
+    return task
 
 
-def setup_environment(context, priorities):
-    # create 3 priority levels by creating 3 tasks with different priorities
-    context.init_env = []
-    for idx, priority in enumerate(priorities):
-        title = "Priority: {}".format(priority)
-        description = "{} Priority Tasks".format(priority)
+def delete_todo_with_priority(context, priority):
+    '''
+        to do this we need to delete 2 resources:
+        categories/category_id/todos/todo_id
+        todos/todo_id
+    '''
+    category_id = category_id_from_priority(context, priority)
+    response = requests.get(context.base_url + 'categories').json()
+    todo_id = get_todo_id(response, category_id)
 
-        task = create_task(context, title, description, priority, None)
-        context.created_ids[context.endpoint].append(task)
-        context.init_env.append(task)
-        # print(priority)
-        # post projects/id/tasks creates a todo also that we need to delete
-        # context.created_ids[context.endpoint].append(task.created_id)
+    endpoint = 'categories/{}/todos/{}'.format(category_id, todo_id)
+
+    setup_context_url_stuff(context, endpoint)
+    logging.info(f'DELETE: {context.url}')
+    response = requests.delete(context.url)
+    assert response.ok
+
+    url = context.base_url + 'todos/{}'.format(todo_id)
+    logging.info(f'DELETE: {url}')
+    response = requests.delete(url)
+    assert response.ok
+    logging.info('')
+
+
+
 
 # ===================== HELPERS ===================================================
 
@@ -87,57 +79,34 @@ def setup_environment(context, priorities):
 # ===================== normal flow ============================================
 @given('I have three precreated priority levels in my system')
 def step_impl(context):
-    setup_context_url_stuff(context, 'categories')
-    priorities = [ 'HIGH', 'MEDIUM', 'LOW' ]
-    setup_environment(context, priorities)
+    # this step is common to story 9 and is therefor handled in:
+    # environment.py/before_feature function which call setup_story9_environment()
+    pass
+    # setup_context_url_stuff(context, 'categories')
+    # priorities = [ 'HIGH', 'MEDIUM', 'LOW' ]
+    # setup_environment(context, priorities)
 
 
 @given('I have an existing valid task with title {title} and priority {oldPriority}')
 def step_impl(context, title, oldPriority):
     # ============== add todo to category: oldPriority =========================
-    priority_category_id = category_id_from_priority(context, oldPriority)
-    endpoint = 'categories/{}/todos'.format(priority_category_id)
-    setup_context_url_stuff(context, endpoint)
-    description = '{} Priority Tasks'.format(oldPriority)
-
-    task = create_task(context, title, description, oldPriority)
-    context.prev_task = task
+    context.prev_task = create_todo_with_priority(context, oldPriority, title)
 
 
 @given('the new priority {newPriority} is not the same as the old priority {oldPriority}')
 def step_impl(context, newPriority, oldPriority):
     # search through description of created_ids[-1]
     task = context.prev_task
-    assert (oldPriority == task.priority) and newPriority != task.priority
+    assert (oldPriority == task.priority) and (newPriority != task.priority)
 
 
 @when('I add the task to the category {newPriority}')
 def step_impl(context, newPriority):
-
-    # first remove the task from its associations with its oldPriority
     prev_task = context.prev_task
-    priority_category_id = category_id_from_priority(context, prev_task.priority)
-    response = requests.get(context.base_url + 'categories').json()
-    todo_id = get_todo_id(response, priority_category_id)
-
-    # delete this todo from previous category
-    url = 'categories/{}/todos/{}'.format(priority_category_id, todo_id)
-    setup_context_url_stuff(context, url)
-    logging.info(f'DELETE: {context.url}')
-    response = requests.delete(context.url)
-    assert response.ok
-
-
-    url = context.base_url + 'todos/{}'.format(todo_id)
-    logging.info(f'DELETE: {url}')
-    response = requests.delete(url)
-    assert response.ok
-    logging.info('')
-    # print()
-    # print()
-
+    delete_todo_with_priority(context, prev_task.priority)
 
     # change the prev_task to the new priority
+    priority_category_id = category_id_from_priority(context, newPriority)
     endpoint = 'categories/{}/todos'.format(priority_category_id)
     setup_context_url_stuff(context, endpoint)
     # assign this prev_task
@@ -145,39 +114,25 @@ def step_impl(context, newPriority):
     changed_task = create_task(context, prev_task.title, prev_task.description, newPriority)
     logging.info('just tried to post the NEW TODO with NEW PRIORITY')
     logging.info('')
-    # print()
-    # print()
 
     context.created_ids['todos'].append(changed_task)
     # context.created_ids['todos'].append(new_todo_id)
     context.prev_task = changed_task
 
 
-
-
 @then('the task should have category {newPriority}')
 def step_impl(context, newPriority):
     prev_task = context.prev_task
-    # url = prev_task.url
-    # print(f'the context url is: {context.url}')
     url = context.url # + '/' + prev_task.created_id
     logging.info(f'Then: url we get from for verification: {url}')
-    # print()
-    # print()
-    # print()
+
     response = requests.get(url)
     assert response.ok
+
     response_body = response.json()['todos'][0]
     logging.info(f'the response body: {response_body}')
     logging.info(f'the stored response: {prev_task.response}')
-    # print()
-    # print()
-    # print()
     assert all(response_body[key] == prev_task.response[key] for key in response_body)
-
-
-    # endpoint = '
-
 # ===================== normal flow ============================================
 
 
@@ -185,22 +140,25 @@ def step_impl(context, newPriority):
 # # ===================== alternate flow =========================================
 # @given('Given I have three precreated priority levels in my system')
 # def step_impl(context):
+#     # this step is common to story 9 and is therefor handled in:
+#     # environment.py/before_feature function which call setup_story9_environment()
 #     pass
 
-# # @given('I have an existing valid task with title <title> and priority <oldPriority>')
-# # def step_impl(context):
-# #     pass
-
-# @given('the new priority <newPriority> is the same as the old priority <oldPriority>')
+# @given('I have an existing valid task with title {title} and priority {oldPriority}')
 # def step_impl(context):
-#     pass
+#     context.prev_task = create_todo_with_priority(context, oldPriority, title)
+
+@given('the new priority {newPriority} is the same as the old priority {oldPriority}')
+def step_impl(context, newPriority, oldPriority):
+    task = context.prev_task
+    assert (oldPriority == newPriority) and (newPriority == task.priority)
 
 # @when('I add the task to the category <newPriority>')
 # def step_impl(context):
 #     pass
 
-# # @then('the task should have category <newPriority>')
-# # def step_impl(context):
-# #     pass
+# @then('the task should have category <newPriority>')
+# def step_impl(context):
+#     pass
 
-# # ===================== alternate flow =========================================
+# ===================== alternate flow =========================================
