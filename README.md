@@ -8,8 +8,11 @@ Group: AutoProj 25
 ## Ensure 'todo manager API' is running on localhost:4567
 > java -jar runTodoManagerRestAPI-1.5.5.jar
 
-## Run Behave tests for each feature/scenario
+## Option 1) Run all tests (all features/ user stories)
 > behave -v
 
-## Run Behave tests in random order
-> From root directory containing README.md: bash random_order_behave.sh
+## Option 2) Run a single feature file manually
+> behave -i <story_feature_filename>.feature
+
+## Option 3) Run all tests in random order
+> bash script
