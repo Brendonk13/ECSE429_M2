@@ -94,27 +94,14 @@ def step_impl(context):
 
 @given('I have an existing valid task with title {title} and priority {oldPriority}')
 def step_impl(context, title, oldPriority):
-    # ============== create todo ===============================================
-    # setup_context_url_stuff(context, 'todos')
-    # task = create_task(context, title, 'new todo', oldPriority)
-    # context.created_ids[context.endpoint].append(task)
-
     # ============== add todo to category: oldPriority =========================
     priority_category_id = category_id_from_priority(context, oldPriority)
     endpoint = 'categories/{}/todos'.format(priority_category_id)
     setup_context_url_stuff(context, endpoint)
-    # description = 'References Todo id: {}'.format(task.created_id)
     description = '{} Priority Tasks'.format(oldPriority)
+
     task = create_task(context, title, description, oldPriority)
     context.prev_task = task
-
-    # # ============== create todo ===============================================
-    # task = create_task(context, title, description, oldPriority)
-    # # side effect of creating task is a todo is created
-    # context.endpoint = "projects/{}/tasks".format(todo_id)
-    # context.url = context.base_url + context.endpoint
-    # # context.created_ids['todos'].append(task.created_id)
-    # # print(f'response ID: {response["id"]}')
 
 
 @given('the new priority {newPriority} is not the same as the old priority {oldPriority}')

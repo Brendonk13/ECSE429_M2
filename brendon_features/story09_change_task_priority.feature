@@ -15,9 +15,8 @@ Scenario Outline: (Normal flow) Update a valid task with a new priority
     Examples: Tasks
         | title | oldPriority | newPriority |
         | task1 | HIGH        | MEDIUM      |
-
-        # | task2 | MEDIUM      | HIGH        |
-        # | task3 | LOW         | LOW         |
+        | task2 | MEDIUM      | HIGH        |
+        | task3 | LOW         | HIGH        |
 
 
 # Scenario Outline: (Alternate flow) Update a valid task with the same priority
