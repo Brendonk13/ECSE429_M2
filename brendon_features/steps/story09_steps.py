@@ -5,23 +5,8 @@ import re
 import logging
 import sys
 sys.path.append('../helpers')
-from helpers.story_9 import Task, create_task, setup_context_url_stuff
+from helpers.story_9 import Task, create_task, setup_context_url_stuff, get_todo_id, category_id_from_priority
 
-
-
-
-
-
-def category_id_from_priority(context, priority):
-    for category in context.init_env:
-        if category.priority == priority:
-            return category.created_id
-
-
-def get_todo_id(response, obj_ID):
-    for category in response['categories']:
-        if obj_ID == category['id']:
-            return category['todos'][-1]['id']
 
 
 def create_todo_with_priority(context, priority, title):
@@ -43,32 +28,32 @@ def create_todo_with_priority(context, priority, title):
     return task
 
 
-def delete_todo_with_priority(context, priority):
+def delete_todo_with_priority(context, priority, todo_id):
     '''
         to do this we need to delete 2 resources:
         categories/category_id/todos/todo_id
         todos/todo_id
     '''
     category_id = category_id_from_priority(context, priority)
-    response = requests.get(context.base_url + 'categories').json()
-    todo_id = get_todo_id(response, category_id)
+    # logging.info(f'DELETE PRIORITY: {priority}, category ID: {category_id}')
+    # response = requests.get(context.base_url + 'categories').json()
+    # todo_id = get_todo_id(response, category_id)
+    # todo_id = 
 
     endpoint = 'categories/{}/todos/{}'.format(category_id, todo_id)
 
     setup_context_url_stuff(context, endpoint)
     logging.info(f'DELETE: {context.url}')
     response = requests.delete(context.url)
+    logging.info(response)
     assert response.ok
 
     url = context.base_url + 'todos/{}'.format(todo_id)
     logging.info(f'DELETE: {url}')
     response = requests.delete(url)
+    logging.info(response)
     assert response.ok
     logging.info('')
-
-
-
-
 # ===================== HELPERS ===================================================
 
 
@@ -82,14 +67,13 @@ def step_impl(context):
     # this step is common to story 9 and is therefor handled in:
     # environment.py/before_feature function which call setup_story9_environment()
     pass
-    # setup_context_url_stuff(context, 'categories')
-    # priorities = [ 'HIGH', 'MEDIUM', 'LOW' ]
-    # setup_environment(context, priorities)
 
 
 @given('I have an existing valid task with title {title} and priority {oldPriority}')
 def step_impl(context, title, oldPriority):
     # ============== add todo to category: oldPriority =========================
+    category_id = category_id_from_priority(context, oldPriority)
+    logging.info(f'OLD PRIORITY: {oldPriority}, category ID: {category_id}')
     context.prev_task = create_todo_with_priority(context, oldPriority, title)
 
 
@@ -103,7 +87,7 @@ def step_impl(context, newPriority, oldPriority):
 @when('I add the task to the category {newPriority}')
 def step_impl(context, newPriority):
     prev_task = context.prev_task
-    delete_todo_with_priority(context, prev_task.priority)
+    delete_todo_with_priority(context, prev_task.priority, prev_task.created_id)
 
     # change the prev_task to the new priority
     priority_category_id = category_id_from_priority(context, newPriority)
@@ -112,27 +96,35 @@ def step_impl(context, newPriority):
     # assign this prev_task
     logging.info(f'url to create_task: {context.url}')
     changed_task = create_task(context, prev_task.title, prev_task.description, newPriority)
+    context.prev_task = changed_task
+
     logging.info('just tried to post the NEW TODO with NEW PRIORITY')
     logging.info('')
 
     context.created_ids['todos'].append(changed_task)
-    # context.created_ids['todos'].append(new_todo_id)
-    context.prev_task = changed_task
 
 
 @then('the task should have category {newPriority}')
 def step_impl(context, newPriority):
     prev_task = context.prev_task
-    url = context.url # + '/' + prev_task.created_id
+    url = context.url
     logging.info(f'Then: url we get from for verification: {url}')
 
     response = requests.get(url)
     assert response.ok
 
-    response_body = response.json()['todos'][0]
+    for todo in response.json()['todos']:
+        if todo['id'] == prev_task.created_id:
+            response_body = todo
+            break
+
+    # logging.info(f'full response body: {response_body}')
+    # response_body = response_body[-1]
     logging.info(f'the response body: {response_body}')
     logging.info(f'the stored response: {prev_task.response}')
     assert all(response_body[key] == prev_task.response[key] for key in response_body)
+    context.prev_task = None
+    context.prev_task = ''
 # ===================== normal flow ============================================
 
 

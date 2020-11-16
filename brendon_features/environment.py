@@ -106,5 +106,7 @@ def cleanup_created_ids(context, dict_items, after_scenario=True):
             logging.info('')
 
     logging.info(f'created_ids after a delete post scenario: {context.created_ids}')
+    logging.info('====================== done scenario ===========================')
+    logging.info('')
     logging.info('')
     logging.info('')

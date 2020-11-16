@@ -1,84 +1,191 @@
-root - INFO - response to post categories: {'id': '3', 'title': 'Priority: HIGH', 'description': 'HIGH Priority Tasks'}
-root - INFO - response to post categories: {'id': '4', 'title': 'Priority: MEDIUM', 'description': 'MEDIUM Priority Tasks'}
-root - INFO - response to post categories: {'id': '5', 'title': 'Priority: LOW', 'description': 'LOW Priority Tasks'}
-root - INFO - response to post categories/3/todos: {'id': '3', 'title': 'task1', 'doneStatus': 'false', 'description': 'HIGH Priority Tasks'}
-root - INFO - DELETE: http://localhost:4567/categories/3/todos/3
-root - INFO - DELETE: http://localhost:4567/todos/3
+root - INFO - response to post categories: {'id': '36', 'title': 'Priority: HIGH', 'description': 'HIGH Priority Tasks'}
+root - INFO - response to post categories: {'id': '37', 'title': 'Priority: MEDIUM', 'description': 'MEDIUM Priority Tasks'}
+root - INFO - response to post categories: {'id': '38', 'title': 'Priority: LOW', 'description': 'LOW Priority Tasks'}
+root - INFO - OLD PRIORITY: HIGH, category ID: 36
+root - INFO - response to post categories/36/todos: {'id': '81', 'title': 'task1', 'doneStatus': 'false', 'description': 'HIGH Priority Tasks'}
+root - INFO - old ID: 81,  new ID: 81
+root - INFO - DELETE: http://localhost:4567/categories/36/todos/81
+root - INFO - <Response [200]>
+root - INFO - DELETE: http://localhost:4567/todos/81
+root - INFO - <Response [200]>
 root - INFO - 
-root - INFO - url to create_task: http://localhost:4567/categories/3/todos
-root - INFO - response to post categories/3/todos: {'id': '4', 'title': 'task1', 'doneStatus': 'false', 'description': 'HIGH Priority Tasks'}
+root - INFO - url to create_task: http://localhost:4567/categories/37/todos
+root - INFO - response to post categories/37/todos: {'id': '82', 'title': 'task1', 'doneStatus': 'false', 'description': 'HIGH Priority Tasks'}
+root - INFO - old ID: 82,  new ID: 82
 root - INFO - just tried to post the NEW TODO with NEW PRIORITY
 root - INFO - 
-root - INFO - Then: url we get from for verification: http://localhost:4567/categories/3/todos
-root - INFO - the response body: {'id': '4', 'title': 'task1', 'doneStatus': 'false', 'description': 'HIGH Priority Tasks'}
-root - INFO - the stored response: {'id': '4', 'title': 'task1', 'doneStatus': 'false', 'description': 'HIGH Priority Tasks'}
+root - INFO - Then: url we get from for verification: http://localhost:4567/categories/37/todos
+root - INFO - the response body: {'id': '82', 'title': 'task1', 'doneStatus': 'false', 'description': 'HIGH Priority Tasks'}
+root - INFO - the stored response: {'id': '82', 'title': 'task1', 'doneStatus': 'false', 'description': 'HIGH Priority Tasks'}
+root - INFO - after scenario: <Scenario "(Normal flow) Update a valid task with a new priority -- @1.1 Tasks">
+root - INFO - endpoint: todos, IDs I am about to delete: [82]
+root - INFO -     loop index: 0, ID: 82
+root - INFO -        response to delete: <Response [200]>
+root - INFO -        list after delete: []
+root - INFO - finished iterating over: [], leftover IDs (should be all gone): []
+root - INFO - 
+root - INFO - created_ids after a delete post scenario: defaultdict(<class 'list'>, {'categories': [36, 37, 38], 'todos': []})
+root - INFO - ====================== done scenario ===========================
+root - INFO - 
+root - INFO - 
+root - INFO - 
+root - INFO - OLD PRIORITY: MEDIUM, category ID: 37
+root - INFO - response to post categories/37/todos: {'id': '83', 'title': 'task2', 'doneStatus': 'false', 'description': 'MEDIUM Priority Tasks'}
+root - INFO - old ID: 83,  new ID: 83
+root - INFO - DELETE: http://localhost:4567/categories/37/todos/83
+root - INFO - <Response [200]>
+root - INFO - DELETE: http://localhost:4567/todos/83
+root - INFO - <Response [200]>
+root - INFO - 
+root - INFO - url to create_task: http://localhost:4567/categories/36/todos
+root - INFO - response to post categories/36/todos: {'id': '84', 'title': 'task2', 'doneStatus': 'false', 'description': 'MEDIUM Priority Tasks'}
+root - INFO - old ID: 84,  new ID: 84
+root - INFO - just tried to post the NEW TODO with NEW PRIORITY
+root - INFO - 
+root - INFO - Then: url we get from for verification: http://localhost:4567/categories/36/todos
+root - INFO - the response body: {'id': '84', 'title': 'task2', 'doneStatus': 'false', 'description': 'MEDIUM Priority Tasks'}
+root - INFO - the stored response: {'id': '84', 'title': 'task2', 'doneStatus': 'false', 'description': 'MEDIUM Priority Tasks'}
+root - INFO - after scenario: <Scenario "(Normal flow) Update a valid task with a new priority -- @1.2 Tasks">
+root - INFO - endpoint: todos, IDs I am about to delete: [84]
+root - INFO -     loop index: 0, ID: 84
+root - INFO -        response to delete: <Response [200]>
+root - INFO -        list after delete: []
+root - INFO - finished iterating over: [], leftover IDs (should be all gone): []
+root - INFO - 
+root - INFO - created_ids after a delete post scenario: defaultdict(<class 'list'>, {'categories': [36, 37, 38], 'todos': []})
+root - INFO - ====================== done scenario ===========================
+root - INFO - 
+root - INFO - 
+root - INFO - 
+root - INFO - OLD PRIORITY: LOW, category ID: 38
+root - INFO - response to post categories/38/todos: {'id': '85', 'title': 'task3', 'doneStatus': 'false', 'description': 'LOW Priority Tasks'}
+root - INFO - old ID: 85,  new ID: 85
+root - INFO - DELETE: http://localhost:4567/categories/38/todos/85
+root - INFO - <Response [200]>
+root - INFO - DELETE: http://localhost:4567/todos/85
+root - INFO - <Response [200]>
+root - INFO - 
+root - INFO - url to create_task: http://localhost:4567/categories/36/todos
+root - INFO - response to post categories/36/todos: {'id': '86', 'title': 'task3', 'doneStatus': 'false', 'description': 'LOW Priority Tasks'}
+root - INFO - old ID: 86,  new ID: 86
+root - INFO - just tried to post the NEW TODO with NEW PRIORITY
+root - INFO - 
+root - INFO - Then: url we get from for verification: http://localhost:4567/categories/36/todos
+root - INFO - the response body: {'id': '86', 'title': 'task3', 'doneStatus': 'false', 'description': 'LOW Priority Tasks'}
+root - INFO - the stored response: {'id': '86', 'title': 'task3', 'doneStatus': 'false', 'description': 'LOW Priority Tasks'}
+root - INFO - after scenario: <Scenario "(Normal flow) Update a valid task with a new priority -- @1.3 Tasks">
+root - INFO - endpoint: todos, IDs I am about to delete: [86]
+root - INFO -     loop index: 0, ID: 86
+root - INFO -        response to delete: <Response [200]>
+root - INFO -        list after delete: []
+root - INFO - finished iterating over: [], leftover IDs (should be all gone): []
+root - INFO - 
+root - INFO - created_ids after a delete post scenario: defaultdict(<class 'list'>, {'categories': [36, 37, 38], 'todos': []})
+root - INFO - ====================== done scenario ===========================
+root - INFO - 
+root - INFO - 
+root - INFO - 
+root - INFO - OLD PRIORITY: HIGH, category ID: 36
+root - INFO - response to post categories/36/todos: {'id': '87', 'title': 'task1', 'doneStatus': 'false', 'description': 'HIGH Priority Tasks'}
+root - INFO - old ID: 87,  new ID: 87
+root - INFO - DELETE: http://localhost:4567/categories/36/todos/87
+root - INFO - <Response [200]>
+root - INFO - DELETE: http://localhost:4567/todos/87
+root - INFO - <Response [200]>
+root - INFO - 
+root - INFO - url to create_task: http://localhost:4567/categories/36/todos
+root - INFO - response to post categories/36/todos: {'id': '88', 'title': 'task1', 'doneStatus': 'false', 'description': 'HIGH Priority Tasks'}
+root - INFO - old ID: 88,  new ID: 88
+root - INFO - just tried to post the NEW TODO with NEW PRIORITY
+root - INFO - 
+root - INFO - Then: url we get from for verification: http://localhost:4567/categories/36/todos
+root - INFO - the response body: {'id': '88', 'title': 'task1', 'doneStatus': 'false', 'description': 'HIGH Priority Tasks'}
+root - INFO - the stored response: {'id': '88', 'title': 'task1', 'doneStatus': 'false', 'description': 'HIGH Priority Tasks'}
 root - INFO - after scenario: <Scenario "(Alternate flow) Update a valid task with the same priority -- @1.1 ">
-root - INFO - endpoint: todos, IDs I am about to delete: [4]
-root - INFO -     loop index: 0, ID: 4
+root - INFO - endpoint: todos, IDs I am about to delete: [88]
+root - INFO -     loop index: 0, ID: 88
 root - INFO -        response to delete: <Response [200]>
 root - INFO -        list after delete: []
 root - INFO - finished iterating over: [], leftover IDs (should be all gone): []
 root - INFO - 
-root - INFO - created_ids after a delete post scenario: defaultdict(<class 'list'>, {'categories': [3, 4, 5], 'todos': []})
+root - INFO - created_ids after a delete post scenario: defaultdict(<class 'list'>, {'categories': [36, 37, 38], 'todos': []})
+root - INFO - ====================== done scenario ===========================
 root - INFO - 
 root - INFO - 
-root - INFO - response to post categories/4/todos: {'id': '5', 'title': 'task2', 'doneStatus': 'false', 'description': 'MEDIUM Priority Tasks'}
-root - INFO - DELETE: http://localhost:4567/categories/4/todos/5
-root - INFO - DELETE: http://localhost:4567/todos/5
 root - INFO - 
-root - INFO - url to create_task: http://localhost:4567/categories/4/todos
-root - INFO - response to post categories/4/todos: {'id': '6', 'title': 'task2', 'doneStatus': 'false', 'description': 'MEDIUM Priority Tasks'}
+root - INFO - OLD PRIORITY: MEDIUM, category ID: 37
+root - INFO - response to post categories/37/todos: {'id': '89', 'title': 'task2', 'doneStatus': 'false', 'description': 'MEDIUM Priority Tasks'}
+root - INFO - old ID: 89,  new ID: 89
+root - INFO - DELETE: http://localhost:4567/categories/37/todos/89
+root - INFO - <Response [200]>
+root - INFO - DELETE: http://localhost:4567/todos/89
+root - INFO - <Response [200]>
+root - INFO - 
+root - INFO - url to create_task: http://localhost:4567/categories/37/todos
+root - INFO - response to post categories/37/todos: {'id': '90', 'title': 'task2', 'doneStatus': 'false', 'description': 'MEDIUM Priority Tasks'}
+root - INFO - old ID: 90,  new ID: 90
 root - INFO - just tried to post the NEW TODO with NEW PRIORITY
 root - INFO - 
-root - INFO - Then: url we get from for verification: http://localhost:4567/categories/4/todos
-root - INFO - the response body: {'id': '6', 'title': 'task2', 'doneStatus': 'false', 'description': 'MEDIUM Priority Tasks'}
-root - INFO - the stored response: {'id': '6', 'title': 'task2', 'doneStatus': 'false', 'description': 'MEDIUM Priority Tasks'}
+root - INFO - Then: url we get from for verification: http://localhost:4567/categories/37/todos
+root - INFO - the response body: {'id': '90', 'title': 'task2', 'doneStatus': 'false', 'description': 'MEDIUM Priority Tasks'}
+root - INFO - the stored response: {'id': '90', 'title': 'task2', 'doneStatus': 'false', 'description': 'MEDIUM Priority Tasks'}
 root - INFO - after scenario: <Scenario "(Alternate flow) Update a valid task with the same priority -- @1.2 ">
-root - INFO - endpoint: todos, IDs I am about to delete: [6]
-root - INFO -     loop index: 0, ID: 6
+root - INFO - endpoint: todos, IDs I am about to delete: [90]
+root - INFO -     loop index: 0, ID: 90
 root - INFO -        response to delete: <Response [200]>
 root - INFO -        list after delete: []
 root - INFO - finished iterating over: [], leftover IDs (should be all gone): []
 root - INFO - 
-root - INFO - created_ids after a delete post scenario: defaultdict(<class 'list'>, {'categories': [3, 4, 5], 'todos': []})
+root - INFO - created_ids after a delete post scenario: defaultdict(<class 'list'>, {'categories': [36, 37, 38], 'todos': []})
+root - INFO - ====================== done scenario ===========================
 root - INFO - 
 root - INFO - 
-root - INFO - response to post categories/5/todos: {'id': '7', 'title': 'task3', 'doneStatus': 'false', 'description': 'LOW Priority Tasks'}
-root - INFO - DELETE: http://localhost:4567/categories/5/todos/7
-root - INFO - DELETE: http://localhost:4567/todos/7
 root - INFO - 
-root - INFO - url to create_task: http://localhost:4567/categories/5/todos
-root - INFO - response to post categories/5/todos: {'id': '8', 'title': 'task3', 'doneStatus': 'false', 'description': 'LOW Priority Tasks'}
+root - INFO - OLD PRIORITY: LOW, category ID: 38
+root - INFO - response to post categories/38/todos: {'id': '91', 'title': 'task3', 'doneStatus': 'false', 'description': 'LOW Priority Tasks'}
+root - INFO - old ID: 91,  new ID: 91
+root - INFO - DELETE: http://localhost:4567/categories/38/todos/91
+root - INFO - <Response [200]>
+root - INFO - DELETE: http://localhost:4567/todos/91
+root - INFO - <Response [200]>
+root - INFO - 
+root - INFO - url to create_task: http://localhost:4567/categories/38/todos
+root - INFO - response to post categories/38/todos: {'id': '92', 'title': 'task3', 'doneStatus': 'false', 'description': 'LOW Priority Tasks'}
+root - INFO - old ID: 92,  new ID: 92
 root - INFO - just tried to post the NEW TODO with NEW PRIORITY
 root - INFO - 
-root - INFO - Then: url we get from for verification: http://localhost:4567/categories/5/todos
-root - INFO - the response body: {'id': '8', 'title': 'task3', 'doneStatus': 'false', 'description': 'LOW Priority Tasks'}
-root - INFO - the stored response: {'id': '8', 'title': 'task3', 'doneStatus': 'false', 'description': 'LOW Priority Tasks'}
+root - INFO - Then: url we get from for verification: http://localhost:4567/categories/38/todos
+root - INFO - the response body: {'id': '92', 'title': 'task3', 'doneStatus': 'false', 'description': 'LOW Priority Tasks'}
+root - INFO - the stored response: {'id': '92', 'title': 'task3', 'doneStatus': 'false', 'description': 'LOW Priority Tasks'}
 root - INFO - after scenario: <Scenario "(Alternate flow) Update a valid task with the same priority -- @1.3 ">
-root - INFO - endpoint: todos, IDs I am about to delete: [8]
-root - INFO -     loop index: 0, ID: 8
+root - INFO - endpoint: todos, IDs I am about to delete: [92]
+root - INFO -     loop index: 0, ID: 92
 root - INFO -        response to delete: <Response [200]>
 root - INFO -        list after delete: []
 root - INFO - finished iterating over: [], leftover IDs (should be all gone): []
 root - INFO - 
-root - INFO - created_ids after a delete post scenario: defaultdict(<class 'list'>, {'categories': [3, 4, 5], 'todos': []})
+root - INFO - created_ids after a delete post scenario: defaultdict(<class 'list'>, {'categories': [36, 37, 38], 'todos': []})
+root - INFO - ====================== done scenario ===========================
 root - INFO - 
 root - INFO - 
-root - INFO - endpoint: categories, IDs I am about to delete: [3, 4, 5]
-root - INFO -     loop index: 0, ID: 3
+root - INFO - 
+root - INFO - endpoint: categories, IDs I am about to delete: [36, 37, 38]
+root - INFO -     loop index: 0, ID: 36
 root - INFO -        response to delete: <Response [200]>
-root - INFO -        list after delete: [4, 5]
-root - INFO -     loop index: 1, ID: 5
+root - INFO -        list after delete: [37, 38]
+root - INFO -     loop index: 1, ID: 38
 root - INFO -        response to delete: <Response [200]>
-root - INFO -        list after delete: [4]
-root - INFO - finished iterating over: [4], leftover IDs (should be all gone): [4]
+root - INFO -        list after delete: [37]
+root - INFO - finished iterating over: [37], leftover IDs (should be all gone): [37]
 root - INFO - 
-root - INFO -     loop index: 0, ID: 4
+root - INFO -     loop index: 0, ID: 37
 root - INFO -        response to delete: <Response [200]>
 root - INFO -        list after delete: []
 root - INFO - finished iterating over: [], leftover IDs (should be all gone): []
 root - INFO - 
 root - INFO - endpoint: todos, IDs I am about to delete: []
 root - INFO - created_ids after a delete post scenario: defaultdict(<class 'list'>, {'categories': [], 'todos': []})
+root - INFO - ====================== done scenario ===========================
+root - INFO - 
 root - INFO - 
 root - INFO - 

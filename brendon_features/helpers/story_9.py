@@ -37,12 +37,40 @@ def create_task(context, title, description, priority):
     assert response.ok
 
     ID = response_body["id"]
+    if all((context.endpoint.startswith('categories/'),
+            context.endpoint.endswith('/todos'))):
+        response = requests.get(context.base_url + 'categories').json()
+        category_id = category_id_from_priority(context, priority)
+        new_ID = get_todo_id(response, category_id)
+        new_ID = str(max(int(new_ID), int(ID)))
+        logging.info(f'old ID: {ID},  new ID: {new_ID}')
+        ID = new_ID
     task = Task(title, priority, ID, response_body, description, context.url)
+    # context.prev_task = task
     return task
 
 
 def setup_context_url_stuff(context, endpoint):
     context.endpoint = endpoint
     context.url = context.base_url + endpoint
+
+
+def get_todo_id(response, obj_ID):
+    for category in response['categories']:
+        if obj_ID == category['id']:
+            return category['todos'][-1]['id']
+
+
+def get_todo_id(response, obj_ID):
+    for category in response['categories']:
+        if obj_ID == category['id']:
+            return category['todos'][-1]['id']
+
+
+
+def category_id_from_priority(context, priority):
+    for category in context.init_env:
+        if category.priority == priority:
+            return category.created_id
 
 
