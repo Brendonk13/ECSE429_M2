@@ -30,8 +30,8 @@ As a student, I categorize tasks as HIGH, MEDIUM or LOW priority, so I can bette
       And <priority> is not the name of an existing category
       And I have an existing valid task with title <title>
      When I add the task to the category <priority>
-     Then there should be an error returned from the system
-      And the task should not have category <priority>
+     Then the task should not have category <priority>
+      And there should be an error returned from the system
       
     Examples: 
       | title | priority        |

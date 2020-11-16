@@ -1,4 +1,5 @@
 # Step Definitions for Story 10: Change task descriptions
+# Created by Helen Lin
 
 from behave import *
 import requests
@@ -14,7 +15,7 @@ def create_todo(title, description):
 
 def cleanup_descr(context):
     # cleanup for this story entails any created tasks
-    if (context.task_ID):
+    if (hasattr(context, 'task_ID')):
         requests.delete("http://localhost:4567/todos/" + context.task_ID)
     return
 

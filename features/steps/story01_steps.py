@@ -1,4 +1,5 @@
 # Step Definitions for Story 1: Categorize tasks by priority (story01_categorize_tasks_priority.feature)
+# Created by Helen Lin
 
 from behave import *
 import requests
@@ -26,15 +27,21 @@ def get_priority_id(context, priority):
         p = -1
     return p
 
-def cleanup_tasks_priority(context):
-    # cleanup for this story entails deleting the 3 created categories, and deleting any created tasks
-    if (context.task_ID):
+def cleanup_tasks(context):
+    # delete any tasks created
+    if hasattr(context, 'task_ID'):
         requests.delete("http://localhost:4567/todos/" + context.task_ID)
-    if (context.HIGH_id):
+    
+    # delete any courses created
+    if hasattr(context, 'course_ID'):
+        requests.delete("http://localhost:4567/projects/" + context.course_ID)
+    
+    # delete any priority categories created
+    if hasattr(context, 'HIGH_id'):
         requests.delete("http://localhost:4567/categories/" + context.HIGH_id)
-    if (context.MEDIUM_id):
+    if hasattr(context, 'MEDIUM_id'):
         requests.delete("http://localhost:4567/categories/" + context.MEDIUM_id)
-    if (context.LOW_id):
+    if hasattr(context, 'LOW_id'):
         requests.delete("http://localhost:4567/categories/" + context.LOW_id)
     return
 
@@ -61,7 +68,7 @@ def step_impl(context, priority):
     assert(priority == response["categories"][0]["title"])
 
     #clean up: delete categories and tasks created
-    cleanup_tasks_priority(context)
+    cleanup_tasks(context)
 
 # ------------- scenario 2 - valid existing task with priority ----------------------
 @given(u'I have an existing valid task with title {title}')
@@ -81,10 +88,6 @@ def step_impl(context, priority):
     for i in range(len(categories)):
         assert(priority != categories[i]['title'])
 
-@then(u'there should be an error returned from the system')
-def step_impl(context):
-    assert(context.response.status_code == 404)
-
 @then(u'the task should not have category {priority}')
 def step_impl(context, priority):
     response = requests.get("http://localhost:4567/todos/"+ context.task_ID + '/categories').json()
@@ -93,5 +96,8 @@ def step_impl(context, priority):
         for i in range (len(categories)):
             assert(priority != categories[i]["title"])
 
+@then(u'there should be an error returned from the system')
+def step_impl(context):
+    assert(context.response.status_code == 404)
     #clean up: delete categories and tasks created
-    cleanup_tasks_priority(context)
+    cleanup_tasks(context)
