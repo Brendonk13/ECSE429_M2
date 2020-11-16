@@ -25,7 +25,7 @@ Feature: Remove a todo list for a class
       | Ecse458   | Ecse Class taking this year       | NOT TAKING ANYMORE                |
   Scenario Outline: Delete a class that doesn't exists (Error Flow)
     Given there does not exist a class with id <id>
-    When user does a delete request with non existing <id>
+    When user tries to delete a non existing todo list by <id>
     Then server returns error:404 Not Found for that <id>
     Examples:
       | id           |

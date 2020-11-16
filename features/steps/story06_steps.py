@@ -50,7 +50,7 @@ def step_imp(context, id):
     context.response = requests.get("http://localhost:4567/projects" + "/" +id)
     assert context.response.status_code == 404
 
-@when('user does a delete request with non existing {id}')
+@when('user tries to delete a non existing todo list by {id}')
 def step_imp(context, id):
     context.response = requests.delete("http://localhost:4567/projects" + "/" + id)
     assert context.response.status_code == 404
