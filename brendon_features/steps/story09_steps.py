@@ -3,6 +3,9 @@ from behave import *
 import requests
 import json
 import re
+import logging
+
+
 
 class Task:
     def __init__(self, title, priority, ID, response, description, url):
@@ -36,7 +39,7 @@ def create_task(context, title, description, priority, todo_id=None):
     response = requests.post(context.url, **body)
     assert response.ok
     response_body = response.json()
-    print(f'response to post {context.endpoint}: {response_body}')
+    logging.info(f'response to post {context.endpoint}: {response_body}')
 
     ID = response_body["id"]
     task = Task(title, priority, ID, response_body, description, context.url)
@@ -133,30 +136,30 @@ def step_impl(context, newPriority):
     # delete this todo from previous category
     url = 'categories/{}/todos/{}'.format(priority_category_id, todo_id)
     setup_context_url_stuff(context, url)
-    print(f'DELETE: {context.url}')
+    logging.info(f'DELETE: {context.url}')
     response = requests.delete(context.url)
     assert response.ok
 
 
     url = context.base_url + 'todos/{}'.format(todo_id)
-    print(f'DELETE: {url}')
+    logging.info(f'DELETE: {url}')
     response = requests.delete(url)
     assert response.ok
-    print()
-    print()
-    print()
+    logging.info('')
+    # print()
+    # print()
 
 
     # change the prev_task to the new priority
     endpoint = 'categories/{}/todos'.format(priority_category_id)
     setup_context_url_stuff(context, endpoint)
     # assign this prev_task
-    print(f'url to create_task: {context.url}')
+    logging.info(f'url to create_task: {context.url}')
     changed_task = create_task(context, prev_task.title, prev_task.description, newPriority)
-    print('just tried to post the NEW TODO with NEW PRIORITY')
-    print()
-    print()
-    print()
+    logging.info('just tried to post the NEW TODO with NEW PRIORITY')
+    logging.info('')
+    # print()
+    # print()
 
     context.created_ids['todos'].append(changed_task)
     # context.created_ids['todos'].append(new_todo_id)
@@ -169,20 +172,20 @@ def step_impl(context, newPriority):
 def step_impl(context, newPriority):
     prev_task = context.prev_task
     # url = prev_task.url
-    print(f'the context url is: {context.url}')
+    # print(f'the context url is: {context.url}')
     url = context.url # + '/' + prev_task.created_id
-    print(f'Then: url we get from for verification: {url}')
-    print()
-    print()
-    print()
+    logging.info(f'Then: url we get from for verification: {url}')
+    # print()
+    # print()
+    # print()
     response = requests.get(url)
     assert response.ok
     response_body = response.json()['todos'][0]
-    print(f'the response body: {response_body}')
-    print(f'the stored response: {prev_task.response}')
-    print()
-    print()
-    print()
+    logging.info(f'the response body: {response_body}')
+    logging.info(f'the stored response: {prev_task.response}')
+    # print()
+    # print()
+    # print()
     assert all(response_body[key] == prev_task.response[key] for key in response_body)
 
 

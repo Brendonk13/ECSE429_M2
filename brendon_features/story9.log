@@ -1,0 +1,38 @@
+root - INFO - response to post categories: {'id': '9', 'title': 'Priority: HIGH', 'description': 'HIGH Priority Tasks'}
+root - INFO - response to post categories: {'id': '10', 'title': 'Priority: MEDIUM', 'description': 'MEDIUM Priority Tasks'}
+root - INFO - response to post categories: {'id': '11', 'title': 'Priority: LOW', 'description': 'LOW Priority Tasks'}
+root - INFO - response to post categories/9/todos: {'id': '7', 'title': 'task1', 'doneStatus': 'false', 'description': 'HIGH Priority Tasks'}
+root - INFO - DELETE: http://localhost:4567/categories/9/todos/7
+root - INFO - DELETE: http://localhost:4567/todos/7
+root - INFO - 
+root - INFO - url to create_task: http://localhost:4567/categories/9/todos
+root - INFO - response to post categories/9/todos: {'id': '8', 'title': 'task1', 'doneStatus': 'false', 'description': 'HIGH Priority Tasks'}
+root - INFO - just tried to post the NEW TODO with NEW PRIORITY
+root - INFO - 
+root - INFO - Then: url we get from for verification: http://localhost:4567/categories/9/todos
+root - INFO - the response body: {'id': '8', 'title': 'task1', 'doneStatus': 'false', 'description': 'HIGH Priority Tasks'}
+root - INFO - the stored response: {'id': '8', 'title': 'task1', 'doneStatus': 'false', 'description': 'HIGH Priority Tasks'}
+root - INFO - after scenario: <Scenario "(Normal flow) Update a valid task with a new priority -- @1.1 Tasks">
+root - INFO - endpoint: categories, IDs I am about to delete: [9, 10, 11]
+root - INFO -     loop index: 0, ID: 9
+root - INFO -        response to delete: <Response [200]>
+root - INFO -        list after delete: [10, 11]
+root - INFO -     loop index: 1, ID: 11
+root - INFO -        response to delete: <Response [200]>
+root - INFO -        list after delete: [10]
+root - INFO - finished iterating over: [10], leftover IDs (should be all gone): [10]
+root - INFO - 
+root - INFO -     loop index: 0, ID: 10
+root - INFO -        response to delete: <Response [200]>
+root - INFO -        list after delete: []
+root - INFO - finished iterating over: [], leftover IDs (should be all gone): []
+root - INFO - 
+root - INFO - endpoint: todos, IDs I am about to delete: [8]
+root - INFO -     loop index: 0, ID: 8
+root - INFO -        response to delete: <Response [200]>
+root - INFO -        list after delete: []
+root - INFO - finished iterating over: [], leftover IDs (should be all gone): []
+root - INFO - 
+root - INFO - created_ids after a delete post scenario: defaultdict(<class 'list'>, {'categories': [], 'todos': []})
+root - INFO - 
+root - INFO - 
