@@ -47,9 +47,9 @@ def step_impl(context, title):
     tasks = requests.get("http://localhost:4567/projects/"+ context.course_ID + "/tasks").json()["todos"]
     found = False
     for i in range(len(tasks)):
-        if (tasks[i]["title"] == title and tasks[i]["id"]==context.task_ID):
+        if (tasks[i]["id"]==context.task_ID):
             found = True
-    assert(found, True)
+    assert(found == True)
 
     #clean up: delete categories and tasks created
     cleanup_tasks_course(context)
