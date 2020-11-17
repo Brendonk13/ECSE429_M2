@@ -18,7 +18,7 @@ Scenario Outline: (Normal flow) Query all incomplete tasks
         | 1          | task3 | false      |
 
 
-# Scenario Outline: (Alternate flow) Query all complete tasks
+Scenario Outline: (Alternate flow) Query all complete tasks
     Given The class <project_id> exists
     And The class has an <doneStatus> task with title <title>
     When I view all <doneStatus> tasks

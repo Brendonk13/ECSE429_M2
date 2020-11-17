@@ -52,28 +52,31 @@ def log_file_name(feature_name):
         return 'story9.log'
     if feature_name == 'story07_query_incomplete_tasks.feature':
         return 'story7.log'
+    if feature_name == 'story08_query_high_priority_tasks.feature':
+        return 'story8.log'
 
 
 def before_feature(context, feature):
+    log_file = log_file_name(feature.filename)
     logging.basicConfig(
-            filename=log_file_name(feature.filename),
+            filename=log_file,
             filemode='w',
             level=logging.INFO,
             format='%(name)s - %(levelname)s - %(message)s',
     )
 
-    if feature.filename == 'story09_change_task_priority.feature':
-        # print('before correct feature!!!')
+    if log_file in ('story9.log', 'story8.log'):
         setup_context_url_stuff(context, 'categories')
         priorities = [ 'HIGH', 'MEDIUM', 'LOW' ]
         setup_story9_environment(context, priorities)
         context.dont_delete_after_scenario = ['categories']
-        logging.info('setup feature story 9 completed')
-        logging.info(f'type init_env: {type(context.init_env[0])}')
+        logging.info('setup feature story for log_file: {} completed'.format(log_file))
 
-    if feature.filename == 'story07_query_incomplete_tasks.feature':
+    if log_file == 'story7.log':
         # need this for compatibility with cleanup_created_ids function
         context.dont_delete_after_scenario = []
+
+    # if log_file == 'story8.log':
 
 
 
@@ -89,7 +92,7 @@ def after_scenario(context, scenario):
                 'story09_change_task_priority.feature',
                 'story07_query_incomplete_tasks.feature'):
 
-        logging.info(f'after scenario: {scenario}')
+        logging.info('after scenario: {}'.format(scenario))
         # don't iterate over this since I need to delete values in created_ids dict
         the_created_ids = context.created_ids.copy()
         # the_created_ids['categories'] = []
