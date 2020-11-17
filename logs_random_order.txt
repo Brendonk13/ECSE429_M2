@@ -1,42 +1,78 @@
 
---------story06_remove_todo_list.feature--------
-1 feature passed, 0 failed, 0 skipped
-6 scenarios passed, 0 failed, 0 skipped
-18 steps passed, 0 failed, 0 skipped, 0 undefined
-Took 0m0.140s
-
---------story01_categorize_tasks_priority.feature--------
-1 feature passed, 0 failed, 0 skipped
-9 scenarios passed, 0 failed, 0 skipped
-39 steps passed, 0 failed, 0 skipped, 0 undefined
-Took 0m0.688s
-
---------story02_add_task_course.feature--------
-1 feature passed, 0 failed, 0 skipped
-10 scenarios passed, 0 failed, 0 skipped
-46 steps passed, 0 failed, 0 skipped, 0 undefined
-Took 0m0.479s
-
---------story10_change_task_description.feature--------
-1 feature passed, 0 failed, 0 skipped
-11 scenarios passed, 0 failed, 0 skipped
-39 steps passed, 0 failed, 0 skipped, 0 undefined
-Took 0m0.364s
-
 --------story05_create_todo_list.feature--------
 1 feature passed, 0 failed, 0 skipped
 8 scenarios passed, 0 failed, 0 skipped
 16 steps passed, 0 failed, 0 skipped, 0 undefined
-Took 0m0.177s
+Took 0m0.116s
 
 --------story04_remove_task_course.feature--------
 1 feature passed, 0 failed, 0 skipped
 8 scenarios passed, 0 failed, 0 skipped
 41 steps passed, 0 failed, 0 skipped, 0 undefined
-Took 0m0.390s
+Took 0m0.283s
+
+--------story01_categorize_tasks_priority.feature--------
+1 feature passed, 0 failed, 0 skipped
+9 scenarios passed, 0 failed, 0 skipped
+39 steps passed, 0 failed, 0 skipped, 0 undefined
+Took 0m0.478s
+
+--------story08_query_high_priority_tasks.feature--------
+0 features passed, 0 failed, 0 skipped
+0 scenarios passed, 0 failed, 0 skipped
+0 steps passed, 0 failed, 0 skipped, 0 undefined
+Took 0m0.000s
+
+--------story10_change_task_description.feature--------
+1 feature passed, 0 failed, 0 skipped
+11 scenarios passed, 0 failed, 0 skipped
+39 steps passed, 0 failed, 0 skipped, 0 undefined
+Took 0m0.212s
+
+--------story06_remove_todo_list.feature--------
+1 feature passed, 0 failed, 0 skipped
+6 scenarios passed, 0 failed, 0 skipped
+18 steps passed, 0 failed, 0 skipped, 0 undefined
+Took 0m0.096s
+
+--------story07_query_incomplete_tasks.feature--------
+
+Failing scenarios:
+  features/story07_query_incomplete_tasks.feature:41  (Error flow) Query specific non-existant task -- @1.1 Incomplete Tasks
+  features/story07_query_incomplete_tasks.feature:42  (Error flow) Query specific non-existant task -- @1.2 Incomplete Tasks
+  features/story07_query_incomplete_tasks.feature:43  (Error flow) Query specific non-existant task -- @1.3 Incomplete Tasks
+
+0 features passed, 1 failed, 0 skipped
+6 scenarios passed, 3 failed, 0 skipped
+30 steps passed, 3 failed, 0 skipped, 0 undefined
+Took 0m0.130s
 
 --------story03_mark_task_done.feature--------
 1 feature passed, 0 failed, 0 skipped
 8 scenarios passed, 0 failed, 0 skipped
 24 steps passed, 0 failed, 0 skipped, 0 undefined
-Took 0m0.267s
+Took 0m0.157s
+
+--------story09_change_task_priority.feature--------
+
+Failing scenarios:
+  features/story09_change_task_priority.feature:17  (Normal flow) Update a valid task with a new priority -- @1.1 Tasks
+  features/story09_change_task_priority.feature:18  (Normal flow) Update a valid task with a new priority -- @1.2 Tasks
+  features/story09_change_task_priority.feature:19  (Normal flow) Update a valid task with a new priority -- @1.3 Tasks
+  features/story09_change_task_priority.feature:31  (Alternate flow) Update a valid task with the same priority -- @1.1 
+  features/story09_change_task_priority.feature:32  (Alternate flow) Update a valid task with the same priority -- @1.2 
+  features/story09_change_task_priority.feature:33  (Alternate flow) Update a valid task with the same priority -- @1.3 
+  features/story09_change_task_priority.feature:47  (Error flow) Update a valid task with non-existant priority -- @1.1 
+  features/story09_change_task_priority.feature:48  (Error flow) Update a valid task with non-existant priority -- @1.2 
+  features/story09_change_task_priority.feature:49  (Error flow) Update a valid task with non-existant priority -- @1.3 
+
+0 features passed, 1 failed, 0 skipped
+0 scenarios passed, 9 failed, 0 skipped
+9 steps passed, 9 failed, 27 skipped, 0 undefined
+Took 0m0.003s
+
+--------story02_add_task_course.feature--------
+1 feature passed, 0 failed, 0 skipped
+10 scenarios passed, 0 failed, 0 skipped
+46 steps passed, 0 failed, 0 skipped, 0 undefined
+Took 0m0.320s

@@ -2,8 +2,9 @@
 
 Group: AutoProj 25
 
-## Setup
-> pip install behave
+## Environment Setup
+> Important: need python >= 3.6 since f-strings are used
+> pip install -r requirements.txt
 
 ## Ensure 'todo manager API' is running on localhost:4567
 > java -jar runTodoManagerRestAPI-1.5.5.jar

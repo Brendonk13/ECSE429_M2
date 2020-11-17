@@ -1,0 +1,907 @@
+root - INFO - before checking project exists
+root - INFO - after checking project exists, response: [{'id': '1', 'title': 'Office Work', 'completed': 'false', 'active': 'false', 'description': '', 'tasks': [{'id': '2'}, {'id': '1'}]}]
+root - INFO - before creating False task with params: {'title': 'task1', 'doneStatus': False}
+root - INFO - after post request, response: <Response [201]>
+root - INFO - response_body: {'id': '3', 'title': 'task1', 'doneStatus': 'false', 'description': '', 'tasksof': [{'id': '1'}]}
+root - INFO - False task created_id: 3
+root - INFO - all False tasks: [{'id': '1', 'title': 'scan paperwork', 'doneStatus': 'false', 'description': '', 'tasksof': [{'id': '1'}], 'categories': [{'id': '1'}]}, {'id': '3', 'title': 'task1', 'doneStatus': 'false', 'description': '', 'tasksof': [{'id': '1'}]}, {'id': '2', 'title': 'file paperwork', 'doneStatus': 'false', 'description': '', 'tasksof': [{'id': '1'}]}]
+root - INFO - 
+root - INFO - 
+root - INFO - found the False task
+root - INFO - doneStatus is False!
+root - INFO - after scenario: <Scenario "(Normal flow) Query all incomplete tasks -- @1.1 Incomplete Tasks">
+root - INFO - endpoint: projects/1/tasks, IDs I am about to delete: ['3']
+root - INFO -     loop index: 0, ID: 3
+root - INFO -        response to delete: <Response [200]>
+root - INFO -        list after delete: []
+root - INFO - finished iterating over: [], leftover IDs (should be all gone): []
+root - INFO - 
+root - INFO - endpoint: todos, IDs I am about to delete: ['3']
+root - INFO -     loop index: 0, ID: 3
+root - INFO -        response to delete: <Response [200]>
+root - INFO -        list after delete: []
+root - INFO - finished iterating over: [], leftover IDs (should be all gone): []
+root - INFO - 
+root - INFO - created_ids after a delete post scenario: defaultdict(<class 'list'>, {'projects/1/tasks': [], 'todos': []})
+root - INFO - ====================== done scenario ===========================
+root - INFO - 
+root - INFO - 
+root - INFO - 
+root - INFO - before checking project exists
+root - INFO - after checking project exists, response: [{'id': '1', 'title': 'Office Work', 'completed': 'false', 'active': 'false', 'description': '', 'tasks': [{'id': '2'}, {'id': '1'}]}]
+root - INFO - before creating False task with params: {'title': 'task2', 'doneStatus': False}
+root - INFO - after post request, response: <Response [201]>
+root - INFO - response_body: {'id': '4', 'title': 'task2', 'doneStatus': 'false', 'description': '', 'tasksof': [{'id': '1'}]}
+root - INFO - False task created_id: 4
+root - INFO - all False tasks: [{'id': '1', 'title': 'scan paperwork', 'doneStatus': 'false', 'description': '', 'tasksof': [{'id': '1'}], 'categories': [{'id': '1'}]}, {'id': '4', 'title': 'task2', 'doneStatus': 'false', 'description': '', 'tasksof': [{'id': '1'}]}, {'id': '2', 'title': 'file paperwork', 'doneStatus': 'false', 'description': '', 'tasksof': [{'id': '1'}]}]
+root - INFO - 
+root - INFO - 
+root - INFO - found the False task
+root - INFO - doneStatus is False!
+root - INFO - after scenario: <Scenario "(Normal flow) Query all incomplete tasks -- @1.2 Incomplete Tasks">
+root - INFO - endpoint: projects/1/tasks, IDs I am about to delete: ['4']
+root - INFO -     loop index: 0, ID: 4
+root - INFO -        response to delete: <Response [200]>
+root - INFO -        list after delete: []
+root - INFO - finished iterating over: [], leftover IDs (should be all gone): []
+root - INFO - 
+root - INFO - endpoint: todos, IDs I am about to delete: ['4']
+root - INFO -     loop index: 0, ID: 4
+root - INFO -        response to delete: <Response [200]>
+root - INFO -        list after delete: []
+root - INFO - finished iterating over: [], leftover IDs (should be all gone): []
+root - INFO - 
+root - INFO - created_ids after a delete post scenario: defaultdict(<class 'list'>, {'projects/1/tasks': [], 'todos': []})
+root - INFO - ====================== done scenario ===========================
+root - INFO - 
+root - INFO - 
+root - INFO - 
+root - INFO - before checking project exists
+root - INFO - after checking project exists, response: [{'id': '1', 'title': 'Office Work', 'completed': 'false', 'active': 'false', 'description': '', 'tasks': [{'id': '2'}, {'id': '1'}]}]
+root - INFO - before creating False task with params: {'title': 'task3', 'doneStatus': False}
+root - INFO - after post request, response: <Response [201]>
+root - INFO - response_body: {'id': '5', 'title': 'task3', 'doneStatus': 'false', 'description': '', 'tasksof': [{'id': '1'}]}
+root - INFO - False task created_id: 5
+root - INFO - all False tasks: [{'id': '1', 'title': 'scan paperwork', 'doneStatus': 'false', 'description': '', 'tasksof': [{'id': '1'}], 'categories': [{'id': '1'}]}, {'id': '5', 'title': 'task3', 'doneStatus': 'false', 'description': '', 'tasksof': [{'id': '1'}]}, {'id': '2', 'title': 'file paperwork', 'doneStatus': 'false', 'description': '', 'tasksof': [{'id': '1'}]}]
+root - INFO - 
+root - INFO - 
+root - INFO - found the False task
+root - INFO - doneStatus is False!
+root - INFO - after scenario: <Scenario "(Normal flow) Query all incomplete tasks -- @1.3 Incomplete Tasks">
+root - INFO - endpoint: projects/1/tasks, IDs I am about to delete: ['5']
+root - INFO -     loop index: 0, ID: 5
+root - INFO -        response to delete: <Response [200]>
+root - INFO -        list after delete: []
+root - INFO - finished iterating over: [], leftover IDs (should be all gone): []
+root - INFO - 
+root - INFO - endpoint: todos, IDs I am about to delete: ['5']
+root - INFO -     loop index: 0, ID: 5
+root - INFO -        response to delete: <Response [200]>
+root - INFO -        list after delete: []
+root - INFO - finished iterating over: [], leftover IDs (should be all gone): []
+root - INFO - 
+root - INFO - created_ids after a delete post scenario: defaultdict(<class 'list'>, {'projects/1/tasks': [], 'todos': []})
+root - INFO - ====================== done scenario ===========================
+root - INFO - 
+root - INFO - 
+root - INFO - 
+root - INFO - before checking project exists
+root - INFO - after checking project exists, response: [{'id': '1', 'title': 'Office Work', 'completed': 'false', 'active': 'false', 'description': '', 'tasks': [{'id': '2'}, {'id': '1'}]}]
+root - INFO - before creating True task with params: {'title': 'task1', 'doneStatus': True}
+root - INFO - after post request, response: <Response [201]>
+root - INFO - response_body: {'id': '6', 'title': 'task1', 'doneStatus': 'true', 'description': '', 'tasksof': [{'id': '1'}]}
+root - INFO - True task created_id: 6
+root - INFO - all True tasks: [{'id': '1', 'title': 'scan paperwork', 'doneStatus': 'false', 'description': '', 'tasksof': [{'id': '1'}], 'categories': [{'id': '1'}]}, {'id': '6', 'title': 'task1', 'doneStatus': 'true', 'description': '', 'tasksof': [{'id': '1'}]}, {'id': '2', 'title': 'file paperwork', 'doneStatus': 'false', 'description': '', 'tasksof': [{'id': '1'}]}]
+root - INFO - 
+root - INFO - 
+root - INFO - found the True task
+root - INFO - doneStatus is True!
+root - INFO - after scenario: <Scenario "(Alternate flow) Query all complete tasks -- @1.1 Incomplete Tasks">
+root - INFO - endpoint: projects/1/tasks, IDs I am about to delete: ['6']
+root - INFO -     loop index: 0, ID: 6
+root - INFO -        response to delete: <Response [200]>
+root - INFO -        list after delete: []
+root - INFO - finished iterating over: [], leftover IDs (should be all gone): []
+root - INFO - 
+root - INFO - endpoint: todos, IDs I am about to delete: ['6']
+root - INFO -     loop index: 0, ID: 6
+root - INFO -        response to delete: <Response [200]>
+root - INFO -        list after delete: []
+root - INFO - finished iterating over: [], leftover IDs (should be all gone): []
+root - INFO - 
+root - INFO - created_ids after a delete post scenario: defaultdict(<class 'list'>, {'projects/1/tasks': [], 'todos': []})
+root - INFO - ====================== done scenario ===========================
+root - INFO - 
+root - INFO - 
+root - INFO - 
+root - INFO - before checking project exists
+root - INFO - after checking project exists, response: [{'id': '1', 'title': 'Office Work', 'completed': 'false', 'active': 'false', 'description': '', 'tasks': [{'id': '2'}, {'id': '1'}]}]
+root - INFO - before creating True task with params: {'title': 'task2', 'doneStatus': True}
+root - INFO - after post request, response: <Response [201]>
+root - INFO - response_body: {'id': '7', 'title': 'task2', 'doneStatus': 'true', 'description': '', 'tasksof': [{'id': '1'}]}
+root - INFO - True task created_id: 7
+root - INFO - all True tasks: [{'id': '1', 'title': 'scan paperwork', 'doneStatus': 'false', 'description': '', 'tasksof': [{'id': '1'}], 'categories': [{'id': '1'}]}, {'id': '7', 'title': 'task2', 'doneStatus': 'true', 'description': '', 'tasksof': [{'id': '1'}]}, {'id': '2', 'title': 'file paperwork', 'doneStatus': 'false', 'description': '', 'tasksof': [{'id': '1'}]}]
+root - INFO - 
+root - INFO - 
+root - INFO - found the True task
+root - INFO - doneStatus is True!
+root - INFO - after scenario: <Scenario "(Alternate flow) Query all complete tasks -- @1.2 Incomplete Tasks">
+root - INFO - endpoint: projects/1/tasks, IDs I am about to delete: ['7']
+root - INFO -     loop index: 0, ID: 7
+root - INFO -        response to delete: <Response [200]>
+root - INFO -        list after delete: []
+root - INFO - finished iterating over: [], leftover IDs (should be all gone): []
+root - INFO - 
+root - INFO - endpoint: todos, IDs I am about to delete: ['7']
+root - INFO -     loop index: 0, ID: 7
+root - INFO -        response to delete: <Response [200]>
+root - INFO -        list after delete: []
+root - INFO - finished iterating over: [], leftover IDs (should be all gone): []
+root - INFO - 
+root - INFO - created_ids after a delete post scenario: defaultdict(<class 'list'>, {'projects/1/tasks': [], 'todos': []})
+root - INFO - ====================== done scenario ===========================
+root - INFO - 
+root - INFO - 
+root - INFO - 
+root - INFO - before checking project exists
+root - INFO - after checking project exists, response: [{'id': '1', 'title': 'Office Work', 'completed': 'false', 'active': 'false', 'description': '', 'tasks': [{'id': '2'}, {'id': '1'}]}]
+root - INFO - before creating True task with params: {'title': 'task3', 'doneStatus': True}
+root - INFO - after post request, response: <Response [201]>
+root - INFO - response_body: {'id': '8', 'title': 'task3', 'doneStatus': 'true', 'description': '', 'tasksof': [{'id': '1'}]}
+root - INFO - True task created_id: 8
+root - INFO - all True tasks: [{'id': '1', 'title': 'scan paperwork', 'doneStatus': 'false', 'description': '', 'tasksof': [{'id': '1'}], 'categories': [{'id': '1'}]}, {'id': '8', 'title': 'task3', 'doneStatus': 'true', 'description': '', 'tasksof': [{'id': '1'}]}, {'id': '2', 'title': 'file paperwork', 'doneStatus': 'false', 'description': '', 'tasksof': [{'id': '1'}]}]
+root - INFO - 
+root - INFO - 
+root - INFO - found the True task
+root - INFO - doneStatus is True!
+root - INFO - after scenario: <Scenario "(Alternate flow) Query all complete tasks -- @1.3 Incomplete Tasks">
+root - INFO - endpoint: projects/1/tasks, IDs I am about to delete: ['8']
+root - INFO -     loop index: 0, ID: 8
+root - INFO -        response to delete: <Response [200]>
+root - INFO -        list after delete: []
+root - INFO - finished iterating over: [], leftover IDs (should be all gone): []
+root - INFO - 
+root - INFO - endpoint: todos, IDs I am about to delete: ['8']
+root - INFO -     loop index: 0, ID: 8
+root - INFO -        response to delete: <Response [200]>
+root - INFO -        list after delete: []
+root - INFO - finished iterating over: [], leftover IDs (should be all gone): []
+root - INFO - 
+root - INFO - created_ids after a delete post scenario: defaultdict(<class 'list'>, {'projects/1/tasks': [], 'todos': []})
+root - INFO - ====================== done scenario ===========================
+root - INFO - 
+root - INFO - 
+root - INFO - 
+root - INFO - before checking project exists
+root - INFO - after checking project exists, response: [{'id': '1', 'title': 'Office Work', 'completed': 'false', 'active': 'false', 'description': '', 'tasks': [{'id': '2'}, {'id': '1'}]}]
+root - INFO - all True tasks: [{'id': '1', 'title': 'scan paperwork', 'doneStatus': 'false', 'description': '', 'tasksof': [{'id': '1'}], 'categories': [{'id': '1'}]}, {'id': '2', 'title': 'file paperwork', 'doneStatus': 'false', 'description': '', 'tasksof': [{'id': '1'}]}]
+root - INFO - after scenario: <Scenario "(Error flow) Query specific non-existant task -- @1.1 Incomplete Tasks">
+root - INFO - endpoint: projects/1/tasks, IDs I am about to delete: []
+root - INFO - endpoint: todos, IDs I am about to delete: []
+root - INFO - created_ids after a delete post scenario: defaultdict(<class 'list'>, {'projects/1/tasks': [], 'todos': []})
+root - INFO - ====================== done scenario ===========================
+root - INFO - 
+root - INFO - 
+root - INFO - 
+root - INFO - before checking project exists
+root - INFO - after checking project exists, response: [{'id': '1', 'title': 'Office Work', 'completed': 'false', 'active': 'false', 'description': '', 'tasks': [{'id': '2'}, {'id': '1'}]}]
+root - INFO - all False tasks: [{'id': '1', 'title': 'scan paperwork', 'doneStatus': 'false', 'description': '', 'tasksof': [{'id': '1'}], 'categories': [{'id': '1'}]}, {'id': '2', 'title': 'file paperwork', 'doneStatus': 'false', 'description': '', 'tasksof': [{'id': '1'}]}]
+root - INFO - after scenario: <Scenario "(Error flow) Query specific non-existant task -- @1.2 Incomplete Tasks">
+root - INFO - endpoint: projects/1/tasks, IDs I am about to delete: []
+root - INFO - endpoint: todos, IDs I am about to delete: []
+root - INFO - created_ids after a delete post scenario: defaultdict(<class 'list'>, {'projects/1/tasks': [], 'todos': []})
+root - INFO - ====================== done scenario ===========================
+root - INFO - 
+root - INFO - 
+root - INFO - 
+root - INFO - before checking project exists
+root - INFO - after checking project exists, response: [{'id': '1', 'title': 'Office Work', 'completed': 'false', 'active': 'false', 'description': '', 'tasks': [{'id': '2'}, {'id': '1'}]}]
+root - INFO - all True tasks: [{'id': '1', 'title': 'scan paperwork', 'doneStatus': 'false', 'description': '', 'tasksof': [{'id': '1'}], 'categories': [{'id': '1'}]}, {'id': '2', 'title': 'file paperwork', 'doneStatus': 'false', 'description': '', 'tasksof': [{'id': '1'}]}]
+root - INFO - after scenario: <Scenario "(Error flow) Query specific non-existant task -- @1.3 Incomplete Tasks">
+root - INFO - endpoint: projects/1/tasks, IDs I am about to delete: []
+root - INFO - endpoint: todos, IDs I am about to delete: []
+root - INFO - created_ids after a delete post scenario: defaultdict(<class 'list'>, {'projects/1/tasks': [], 'todos': []})
+root - INFO - ====================== done scenario ===========================
+root - INFO - 
+root - INFO - 
+root - INFO - 
+root - INFO - response to post categories: {'id': '3', 'title': 'Priority: HIGH', 'description': 'HIGH Priority Tasks'}
+root - INFO - response ID: 3,  new ID: 3
+root - INFO - response to post categories: {'id': '4', 'title': 'Priority: MEDIUM', 'description': 'MEDIUM Priority Tasks'}
+root - INFO - response ID: 4,  new ID: 4
+root - INFO - response to post categories: {'id': '5', 'title': 'Priority: LOW', 'description': 'LOW Priority Tasks'}
+root - INFO - response ID: 5,  new ID: 5
+root - INFO - setup feature story for log_file: story9.log completed
+root - INFO - searching for priority: HIGH
+root - INFO - tried to print obj with id: 3
+root - INFO - category: 3
+root - INFO - tried to print obj with id: 3
+root - INFO - found priority attached to  object: 3
+root - INFO - OLD PRIORITY: HIGH, category ID: 3
+root - INFO - searching for priority: HIGH
+root - INFO - tried to print obj with id: 3
+root - INFO - category: 3
+root - INFO - tried to print obj with id: 3
+root - INFO - found priority attached to  object: 3
+root - INFO - response to post categories/3/todos: {'id': '9', 'title': 'task1', 'doneStatus': 'false', 'description': 'HIGH Priority Tasks'}
+root - INFO - searching for priority: HIGH
+root - INFO - tried to print obj with id: 3
+root - INFO - category: 3
+root - INFO - tried to print obj with id: 3
+root - INFO - found priority attached to  object: 3
+root - INFO - todo_id_from_response, response: [{'id': '1', 'title': 'Office', 'description': ''}, {'id': '4', 'title': 'Priority: MEDIUM', 'description': 'MEDIUM Priority Tasks'}, {'id': '2', 'title': 'Home', 'description': ''}, {'id': '3', 'title': 'Priority: HIGH', 'description': 'HIGH Priority Tasks', 'todos': [{'id': '9'}]}, {'id': '5', 'title': 'Priority: LOW', 'description': 'LOW Priority Tasks'}]
+root - INFO - old ID: 9,  new ID: 9
+root - INFO - response ID: 9,  new ID: 9
+root - INFO - todo_id_from_response, response: [{'id': '1', 'title': 'Office', 'description': ''}, {'id': '4', 'title': 'Priority: MEDIUM', 'description': 'MEDIUM Priority Tasks'}, {'id': '2', 'title': 'Home', 'description': ''}, {'id': '3', 'title': 'Priority: HIGH', 'description': 'HIGH Priority Tasks', 'todos': [{'id': '9'}]}, {'id': '5', 'title': 'Priority: LOW', 'description': 'LOW Priority Tasks'}]
+root - INFO - searching for priority: HIGH
+root - INFO - tried to print obj with id: 3
+root - INFO - category: 3
+root - INFO - tried to print obj with id: 3
+root - INFO - found priority attached to  object: 3
+root - INFO - DELETE: http://localhost:4567/categories/3/todos/9
+root - INFO - <Response [200]>
+root - INFO - DELETE: http://localhost:4567/todos/9
+root - INFO - <Response [200]>
+root - INFO - 
+root - INFO - searching for priority: MEDIUM
+root - INFO - tried to print obj with id: 3
+root - INFO - category: 3
+root - INFO - tried to print obj with id: 4
+root - INFO - category: 4
+root - INFO - tried to print obj with id: 4
+root - INFO - found priority attached to  object: 4
+root - INFO - url to create_task: http://localhost:4567/categories/4/todos
+root - INFO - response to post categories/4/todos: {'id': '10', 'title': 'task1', 'doneStatus': 'false', 'description': 'HIGH Priority Tasks'}
+root - INFO - searching for priority: MEDIUM
+root - INFO - tried to print obj with id: 3
+root - INFO - category: 3
+root - INFO - tried to print obj with id: 4
+root - INFO - category: 4
+root - INFO - tried to print obj with id: 4
+root - INFO - found priority attached to  object: 4
+root - INFO - todo_id_from_response, response: [{'id': '1', 'title': 'Office', 'description': ''}, {'id': '4', 'title': 'Priority: MEDIUM', 'description': 'MEDIUM Priority Tasks', 'todos': [{'id': '10'}]}, {'id': '2', 'title': 'Home', 'description': ''}, {'id': '3', 'title': 'Priority: HIGH', 'description': 'HIGH Priority Tasks'}, {'id': '5', 'title': 'Priority: LOW', 'description': 'LOW Priority Tasks'}]
+root - INFO - old ID: 10,  new ID: 10
+root - INFO - response ID: 10,  new ID: 10
+root - INFO - just tried to post the NEW TODO with NEW PRIORITY
+root - INFO - 
+root - INFO - Then: url we get from for verification: http://localhost:4567/categories/4/todos
+root - INFO - the response body: {'id': '10', 'title': 'task1', 'doneStatus': 'false', 'description': 'HIGH Priority Tasks'}
+root - INFO - the stored response: {'id': '10', 'title': 'task1', 'doneStatus': 'false', 'description': 'HIGH Priority Tasks'}
+root - INFO - after scenario: <Scenario "(Normal flow) Update a valid task with a new priority -- @1.1 Tasks">
+root - INFO - endpoint: projects/1/tasks, IDs I am about to delete: []
+root - INFO - tried to print obj with id: 10
+root - INFO - endpoint: todos, IDs I am about to delete: [10]
+root - INFO - tried to print obj with id: 10
+root - INFO -     loop index: 0, ID: 10
+root - INFO -        response to delete: <Response [200]>
+root - INFO -        list after delete: []
+root - INFO - finished iterating over: [], leftover IDs (should be all gone): []
+root - INFO - 
+root - INFO - tried to print obj with id: 3
+root - INFO - tried to print obj with id: 4
+root - INFO - tried to print obj with id: 5
+root - INFO - created_ids after a delete post scenario: defaultdict(<class 'list'>, {'projects/1/tasks': [], 'todos': [], 'categories': [3, 4, 5]})
+root - INFO - ====================== done scenario ===========================
+root - INFO - 
+root - INFO - 
+root - INFO - 
+root - INFO - searching for priority: MEDIUM
+root - INFO - tried to print obj with id: 3
+root - INFO - category: 3
+root - INFO - tried to print obj with id: 4
+root - INFO - category: 4
+root - INFO - tried to print obj with id: 4
+root - INFO - found priority attached to  object: 4
+root - INFO - OLD PRIORITY: MEDIUM, category ID: 4
+root - INFO - searching for priority: MEDIUM
+root - INFO - tried to print obj with id: 3
+root - INFO - category: 3
+root - INFO - tried to print obj with id: 4
+root - INFO - category: 4
+root - INFO - tried to print obj with id: 4
+root - INFO - found priority attached to  object: 4
+root - INFO - response to post categories/4/todos: {'id': '11', 'title': 'task2', 'doneStatus': 'false', 'description': 'MEDIUM Priority Tasks'}
+root - INFO - searching for priority: MEDIUM
+root - INFO - tried to print obj with id: 3
+root - INFO - category: 3
+root - INFO - tried to print obj with id: 4
+root - INFO - category: 4
+root - INFO - tried to print obj with id: 4
+root - INFO - found priority attached to  object: 4
+root - INFO - todo_id_from_response, response: [{'id': '1', 'title': 'Office', 'description': ''}, {'id': '4', 'title': 'Priority: MEDIUM', 'description': 'MEDIUM Priority Tasks', 'todos': [{'id': '10'}, {'id': '11'}]}, {'id': '2', 'title': 'Home', 'description': ''}, {'id': '3', 'title': 'Priority: HIGH', 'description': 'HIGH Priority Tasks'}, {'id': '5', 'title': 'Priority: LOW', 'description': 'LOW Priority Tasks'}]
+root - INFO - old ID: 11,  new ID: 11
+root - INFO - response ID: 11,  new ID: 11
+root - INFO - todo_id_from_response, response: [{'id': '1', 'title': 'Office', 'description': ''}, {'id': '4', 'title': 'Priority: MEDIUM', 'description': 'MEDIUM Priority Tasks', 'todos': [{'id': '10'}, {'id': '11'}]}, {'id': '2', 'title': 'Home', 'description': ''}, {'id': '3', 'title': 'Priority: HIGH', 'description': 'HIGH Priority Tasks'}, {'id': '5', 'title': 'Priority: LOW', 'description': 'LOW Priority Tasks'}]
+root - INFO - searching for priority: MEDIUM
+root - INFO - tried to print obj with id: 3
+root - INFO - category: 3
+root - INFO - tried to print obj with id: 4
+root - INFO - category: 4
+root - INFO - tried to print obj with id: 4
+root - INFO - found priority attached to  object: 4
+root - INFO - DELETE: http://localhost:4567/categories/4/todos/11
+root - INFO - <Response [200]>
+root - INFO - DELETE: http://localhost:4567/todos/11
+root - INFO - <Response [200]>
+root - INFO - 
+root - INFO - searching for priority: HIGH
+root - INFO - tried to print obj with id: 3
+root - INFO - category: 3
+root - INFO - tried to print obj with id: 3
+root - INFO - found priority attached to  object: 3
+root - INFO - url to create_task: http://localhost:4567/categories/3/todos
+root - INFO - response to post categories/3/todos: {'id': '12', 'title': 'task2', 'doneStatus': 'false', 'description': 'MEDIUM Priority Tasks'}
+root - INFO - searching for priority: HIGH
+root - INFO - tried to print obj with id: 3
+root - INFO - category: 3
+root - INFO - tried to print obj with id: 3
+root - INFO - found priority attached to  object: 3
+root - INFO - todo_id_from_response, response: [{'id': '1', 'title': 'Office', 'description': ''}, {'id': '4', 'title': 'Priority: MEDIUM', 'description': 'MEDIUM Priority Tasks', 'todos': [{'id': '10'}]}, {'id': '2', 'title': 'Home', 'description': ''}, {'id': '3', 'title': 'Priority: HIGH', 'description': 'HIGH Priority Tasks', 'todos': [{'id': '12'}]}, {'id': '5', 'title': 'Priority: LOW', 'description': 'LOW Priority Tasks'}]
+root - INFO - old ID: 12,  new ID: 12
+root - INFO - response ID: 12,  new ID: 12
+root - INFO - just tried to post the NEW TODO with NEW PRIORITY
+root - INFO - 
+root - INFO - Then: url we get from for verification: http://localhost:4567/categories/3/todos
+root - INFO - the response body: {'id': '12', 'title': 'task2', 'doneStatus': 'false', 'description': 'MEDIUM Priority Tasks'}
+root - INFO - the stored response: {'id': '12', 'title': 'task2', 'doneStatus': 'false', 'description': 'MEDIUM Priority Tasks'}
+root - INFO - after scenario: <Scenario "(Normal flow) Update a valid task with a new priority -- @1.2 Tasks">
+root - INFO - endpoint: projects/1/tasks, IDs I am about to delete: []
+root - INFO - tried to print obj with id: 12
+root - INFO - endpoint: todos, IDs I am about to delete: [12]
+root - INFO - tried to print obj with id: 12
+root - INFO -     loop index: 0, ID: 12
+root - INFO -        response to delete: <Response [200]>
+root - INFO -        list after delete: []
+root - INFO - finished iterating over: [], leftover IDs (should be all gone): []
+root - INFO - 
+root - INFO - tried to print obj with id: 3
+root - INFO - tried to print obj with id: 4
+root - INFO - tried to print obj with id: 5
+root - INFO - created_ids after a delete post scenario: defaultdict(<class 'list'>, {'projects/1/tasks': [], 'todos': [], 'categories': [3, 4, 5]})
+root - INFO - ====================== done scenario ===========================
+root - INFO - 
+root - INFO - 
+root - INFO - 
+root - INFO - searching for priority: LOW
+root - INFO - tried to print obj with id: 3
+root - INFO - category: 3
+root - INFO - tried to print obj with id: 4
+root - INFO - category: 4
+root - INFO - tried to print obj with id: 5
+root - INFO - category: 5
+root - INFO - tried to print obj with id: 5
+root - INFO - found priority attached to  object: 5
+root - INFO - OLD PRIORITY: LOW, category ID: 5
+root - INFO - searching for priority: LOW
+root - INFO - tried to print obj with id: 3
+root - INFO - category: 3
+root - INFO - tried to print obj with id: 4
+root - INFO - category: 4
+root - INFO - tried to print obj with id: 5
+root - INFO - category: 5
+root - INFO - tried to print obj with id: 5
+root - INFO - found priority attached to  object: 5
+root - INFO - response to post categories/5/todos: {'id': '13', 'title': 'task3', 'doneStatus': 'false', 'description': 'LOW Priority Tasks'}
+root - INFO - searching for priority: LOW
+root - INFO - tried to print obj with id: 3
+root - INFO - category: 3
+root - INFO - tried to print obj with id: 4
+root - INFO - category: 4
+root - INFO - tried to print obj with id: 5
+root - INFO - category: 5
+root - INFO - tried to print obj with id: 5
+root - INFO - found priority attached to  object: 5
+root - INFO - todo_id_from_response, response: [{'id': '1', 'title': 'Office', 'description': ''}, {'id': '4', 'title': 'Priority: MEDIUM', 'description': 'MEDIUM Priority Tasks', 'todos': [{'id': '10'}]}, {'id': '2', 'title': 'Home', 'description': ''}, {'id': '3', 'title': 'Priority: HIGH', 'description': 'HIGH Priority Tasks', 'todos': [{'id': '12'}]}, {'id': '5', 'title': 'Priority: LOW', 'description': 'LOW Priority Tasks', 'todos': [{'id': '13'}]}]
+root - INFO - old ID: 13,  new ID: 13
+root - INFO - response ID: 13,  new ID: 13
+root - INFO - todo_id_from_response, response: [{'id': '1', 'title': 'Office', 'description': ''}, {'id': '4', 'title': 'Priority: MEDIUM', 'description': 'MEDIUM Priority Tasks', 'todos': [{'id': '10'}]}, {'id': '2', 'title': 'Home', 'description': ''}, {'id': '3', 'title': 'Priority: HIGH', 'description': 'HIGH Priority Tasks', 'todos': [{'id': '12'}]}, {'id': '5', 'title': 'Priority: LOW', 'description': 'LOW Priority Tasks', 'todos': [{'id': '13'}]}]
+root - INFO - searching for priority: LOW
+root - INFO - tried to print obj with id: 3
+root - INFO - category: 3
+root - INFO - tried to print obj with id: 4
+root - INFO - category: 4
+root - INFO - tried to print obj with id: 5
+root - INFO - category: 5
+root - INFO - tried to print obj with id: 5
+root - INFO - found priority attached to  object: 5
+root - INFO - DELETE: http://localhost:4567/categories/5/todos/13
+root - INFO - <Response [200]>
+root - INFO - DELETE: http://localhost:4567/todos/13
+root - INFO - <Response [200]>
+root - INFO - 
+root - INFO - searching for priority: HIGH
+root - INFO - tried to print obj with id: 3
+root - INFO - category: 3
+root - INFO - tried to print obj with id: 3
+root - INFO - found priority attached to  object: 3
+root - INFO - url to create_task: http://localhost:4567/categories/3/todos
+root - INFO - response to post categories/3/todos: {'id': '14', 'title': 'task3', 'doneStatus': 'false', 'description': 'LOW Priority Tasks'}
+root - INFO - searching for priority: HIGH
+root - INFO - tried to print obj with id: 3
+root - INFO - category: 3
+root - INFO - tried to print obj with id: 3
+root - INFO - found priority attached to  object: 3
+root - INFO - todo_id_from_response, response: [{'id': '1', 'title': 'Office', 'description': ''}, {'id': '4', 'title': 'Priority: MEDIUM', 'description': 'MEDIUM Priority Tasks', 'todos': [{'id': '10'}]}, {'id': '2', 'title': 'Home', 'description': ''}, {'id': '3', 'title': 'Priority: HIGH', 'description': 'HIGH Priority Tasks', 'todos': [{'id': '12'}, {'id': '14'}]}, {'id': '5', 'title': 'Priority: LOW', 'description': 'LOW Priority Tasks'}]
+root - INFO - old ID: 14,  new ID: 14
+root - INFO - response ID: 14,  new ID: 14
+root - INFO - just tried to post the NEW TODO with NEW PRIORITY
+root - INFO - 
+root - INFO - Then: url we get from for verification: http://localhost:4567/categories/3/todos
+root - INFO - the response body: {'id': '14', 'title': 'task3', 'doneStatus': 'false', 'description': 'LOW Priority Tasks'}
+root - INFO - the stored response: {'id': '14', 'title': 'task3', 'doneStatus': 'false', 'description': 'LOW Priority Tasks'}
+root - INFO - after scenario: <Scenario "(Normal flow) Update a valid task with a new priority -- @1.3 Tasks">
+root - INFO - endpoint: projects/1/tasks, IDs I am about to delete: []
+root - INFO - tried to print obj with id: 14
+root - INFO - endpoint: todos, IDs I am about to delete: [14]
+root - INFO - tried to print obj with id: 14
+root - INFO -     loop index: 0, ID: 14
+root - INFO -        response to delete: <Response [200]>
+root - INFO -        list after delete: []
+root - INFO - finished iterating over: [], leftover IDs (should be all gone): []
+root - INFO - 
+root - INFO - tried to print obj with id: 3
+root - INFO - tried to print obj with id: 4
+root - INFO - tried to print obj with id: 5
+root - INFO - created_ids after a delete post scenario: defaultdict(<class 'list'>, {'projects/1/tasks': [], 'todos': [], 'categories': [3, 4, 5]})
+root - INFO - ====================== done scenario ===========================
+root - INFO - 
+root - INFO - 
+root - INFO - 
+root - INFO - searching for priority: HIGH
+root - INFO - tried to print obj with id: 3
+root - INFO - category: 3
+root - INFO - tried to print obj with id: 3
+root - INFO - found priority attached to  object: 3
+root - INFO - OLD PRIORITY: HIGH, category ID: 3
+root - INFO - searching for priority: HIGH
+root - INFO - tried to print obj with id: 3
+root - INFO - category: 3
+root - INFO - tried to print obj with id: 3
+root - INFO - found priority attached to  object: 3
+root - INFO - response to post categories/3/todos: {'id': '15', 'title': 'task1', 'doneStatus': 'false', 'description': 'HIGH Priority Tasks'}
+root - INFO - searching for priority: HIGH
+root - INFO - tried to print obj with id: 3
+root - INFO - category: 3
+root - INFO - tried to print obj with id: 3
+root - INFO - found priority attached to  object: 3
+root - INFO - todo_id_from_response, response: [{'id': '1', 'title': 'Office', 'description': ''}, {'id': '4', 'title': 'Priority: MEDIUM', 'description': 'MEDIUM Priority Tasks', 'todos': [{'id': '10'}]}, {'id': '2', 'title': 'Home', 'description': ''}, {'id': '3', 'title': 'Priority: HIGH', 'description': 'HIGH Priority Tasks', 'todos': [{'id': '12'}, {'id': '15'}, {'id': '14'}]}, {'id': '5', 'title': 'Priority: LOW', 'description': 'LOW Priority Tasks'}]
+root - INFO - old ID: 15,  new ID: 15
+root - INFO - response ID: 15,  new ID: 15
+root - INFO - todo_id_from_response, response: [{'id': '1', 'title': 'Office', 'description': ''}, {'id': '4', 'title': 'Priority: MEDIUM', 'description': 'MEDIUM Priority Tasks', 'todos': [{'id': '10'}]}, {'id': '2', 'title': 'Home', 'description': ''}, {'id': '3', 'title': 'Priority: HIGH', 'description': 'HIGH Priority Tasks', 'todos': [{'id': '12'}, {'id': '15'}, {'id': '14'}]}, {'id': '5', 'title': 'Priority: LOW', 'description': 'LOW Priority Tasks'}]
+root - INFO - searching for priority: HIGH
+root - INFO - tried to print obj with id: 3
+root - INFO - category: 3
+root - INFO - tried to print obj with id: 3
+root - INFO - found priority attached to  object: 3
+root - INFO - DELETE: http://localhost:4567/categories/3/todos/15
+root - INFO - <Response [200]>
+root - INFO - DELETE: http://localhost:4567/todos/15
+root - INFO - <Response [200]>
+root - INFO - 
+root - INFO - searching for priority: HIGH
+root - INFO - tried to print obj with id: 3
+root - INFO - category: 3
+root - INFO - tried to print obj with id: 3
+root - INFO - found priority attached to  object: 3
+root - INFO - url to create_task: http://localhost:4567/categories/3/todos
+root - INFO - response to post categories/3/todos: {'id': '16', 'title': 'task1', 'doneStatus': 'false', 'description': 'HIGH Priority Tasks'}
+root - INFO - searching for priority: HIGH
+root - INFO - tried to print obj with id: 3
+root - INFO - category: 3
+root - INFO - tried to print obj with id: 3
+root - INFO - found priority attached to  object: 3
+root - INFO - todo_id_from_response, response: [{'id': '1', 'title': 'Office', 'description': ''}, {'id': '4', 'title': 'Priority: MEDIUM', 'description': 'MEDIUM Priority Tasks', 'todos': [{'id': '10'}]}, {'id': '2', 'title': 'Home', 'description': ''}, {'id': '3', 'title': 'Priority: HIGH', 'description': 'HIGH Priority Tasks', 'todos': [{'id': '12'}, {'id': '16'}, {'id': '14'}]}, {'id': '5', 'title': 'Priority: LOW', 'description': 'LOW Priority Tasks'}]
+root - INFO - old ID: 16,  new ID: 16
+root - INFO - response ID: 16,  new ID: 16
+root - INFO - just tried to post the NEW TODO with NEW PRIORITY
+root - INFO - 
+root - INFO - Then: url we get from for verification: http://localhost:4567/categories/3/todos
+root - INFO - the response body: {'id': '16', 'title': 'task1', 'doneStatus': 'false', 'description': 'HIGH Priority Tasks'}
+root - INFO - the stored response: {'id': '16', 'title': 'task1', 'doneStatus': 'false', 'description': 'HIGH Priority Tasks'}
+root - INFO - after scenario: <Scenario "(Alternate flow) Update a valid task with the same priority -- @1.1 ">
+root - INFO - endpoint: projects/1/tasks, IDs I am about to delete: []
+root - INFO - tried to print obj with id: 16
+root - INFO - endpoint: todos, IDs I am about to delete: [16]
+root - INFO - tried to print obj with id: 16
+root - INFO -     loop index: 0, ID: 16
+root - INFO -        response to delete: <Response [200]>
+root - INFO -        list after delete: []
+root - INFO - finished iterating over: [], leftover IDs (should be all gone): []
+root - INFO - 
+root - INFO - tried to print obj with id: 3
+root - INFO - tried to print obj with id: 4
+root - INFO - tried to print obj with id: 5
+root - INFO - created_ids after a delete post scenario: defaultdict(<class 'list'>, {'projects/1/tasks': [], 'todos': [], 'categories': [3, 4, 5]})
+root - INFO - ====================== done scenario ===========================
+root - INFO - 
+root - INFO - 
+root - INFO - 
+root - INFO - searching for priority: MEDIUM
+root - INFO - tried to print obj with id: 3
+root - INFO - category: 3
+root - INFO - tried to print obj with id: 4
+root - INFO - category: 4
+root - INFO - tried to print obj with id: 4
+root - INFO - found priority attached to  object: 4
+root - INFO - OLD PRIORITY: MEDIUM, category ID: 4
+root - INFO - searching for priority: MEDIUM
+root - INFO - tried to print obj with id: 3
+root - INFO - category: 3
+root - INFO - tried to print obj with id: 4
+root - INFO - category: 4
+root - INFO - tried to print obj with id: 4
+root - INFO - found priority attached to  object: 4
+root - INFO - response to post categories/4/todos: {'id': '17', 'title': 'task2', 'doneStatus': 'false', 'description': 'MEDIUM Priority Tasks'}
+root - INFO - searching for priority: MEDIUM
+root - INFO - tried to print obj with id: 3
+root - INFO - category: 3
+root - INFO - tried to print obj with id: 4
+root - INFO - category: 4
+root - INFO - tried to print obj with id: 4
+root - INFO - found priority attached to  object: 4
+root - INFO - todo_id_from_response, response: [{'id': '1', 'title': 'Office', 'description': ''}, {'id': '4', 'title': 'Priority: MEDIUM', 'description': 'MEDIUM Priority Tasks', 'todos': [{'id': '17'}, {'id': '10'}]}, {'id': '2', 'title': 'Home', 'description': ''}, {'id': '3', 'title': 'Priority: HIGH', 'description': 'HIGH Priority Tasks', 'todos': [{'id': '12'}, {'id': '16'}, {'id': '14'}]}, {'id': '5', 'title': 'Priority: LOW', 'description': 'LOW Priority Tasks'}]
+root - INFO - old ID: 17,  new ID: 17
+root - INFO - response ID: 17,  new ID: 17
+root - INFO - todo_id_from_response, response: [{'id': '1', 'title': 'Office', 'description': ''}, {'id': '4', 'title': 'Priority: MEDIUM', 'description': 'MEDIUM Priority Tasks', 'todos': [{'id': '17'}, {'id': '10'}]}, {'id': '2', 'title': 'Home', 'description': ''}, {'id': '3', 'title': 'Priority: HIGH', 'description': 'HIGH Priority Tasks', 'todos': [{'id': '12'}, {'id': '16'}, {'id': '14'}]}, {'id': '5', 'title': 'Priority: LOW', 'description': 'LOW Priority Tasks'}]
+root - INFO - searching for priority: MEDIUM
+root - INFO - tried to print obj with id: 3
+root - INFO - category: 3
+root - INFO - tried to print obj with id: 4
+root - INFO - category: 4
+root - INFO - tried to print obj with id: 4
+root - INFO - found priority attached to  object: 4
+root - INFO - DELETE: http://localhost:4567/categories/4/todos/17
+root - INFO - <Response [200]>
+root - INFO - DELETE: http://localhost:4567/todos/17
+root - INFO - <Response [200]>
+root - INFO - 
+root - INFO - searching for priority: MEDIUM
+root - INFO - tried to print obj with id: 3
+root - INFO - category: 3
+root - INFO - tried to print obj with id: 4
+root - INFO - category: 4
+root - INFO - tried to print obj with id: 4
+root - INFO - found priority attached to  object: 4
+root - INFO - url to create_task: http://localhost:4567/categories/4/todos
+root - INFO - response to post categories/4/todos: {'id': '18', 'title': 'task2', 'doneStatus': 'false', 'description': 'MEDIUM Priority Tasks'}
+root - INFO - searching for priority: MEDIUM
+root - INFO - tried to print obj with id: 3
+root - INFO - category: 3
+root - INFO - tried to print obj with id: 4
+root - INFO - category: 4
+root - INFO - tried to print obj with id: 4
+root - INFO - found priority attached to  object: 4
+root - INFO - todo_id_from_response, response: [{'id': '1', 'title': 'Office', 'description': ''}, {'id': '4', 'title': 'Priority: MEDIUM', 'description': 'MEDIUM Priority Tasks', 'todos': [{'id': '18'}, {'id': '10'}]}, {'id': '2', 'title': 'Home', 'description': ''}, {'id': '3', 'title': 'Priority: HIGH', 'description': 'HIGH Priority Tasks', 'todos': [{'id': '12'}, {'id': '16'}, {'id': '14'}]}, {'id': '5', 'title': 'Priority: LOW', 'description': 'LOW Priority Tasks'}]
+root - INFO - old ID: 18,  new ID: 18
+root - INFO - response ID: 18,  new ID: 18
+root - INFO - just tried to post the NEW TODO with NEW PRIORITY
+root - INFO - 
+root - INFO - Then: url we get from for verification: http://localhost:4567/categories/4/todos
+root - INFO - the response body: {'id': '18', 'title': 'task2', 'doneStatus': 'false', 'description': 'MEDIUM Priority Tasks'}
+root - INFO - the stored response: {'id': '18', 'title': 'task2', 'doneStatus': 'false', 'description': 'MEDIUM Priority Tasks'}
+root - INFO - after scenario: <Scenario "(Alternate flow) Update a valid task with the same priority -- @1.2 ">
+root - INFO - endpoint: projects/1/tasks, IDs I am about to delete: []
+root - INFO - tried to print obj with id: 18
+root - INFO - endpoint: todos, IDs I am about to delete: [18]
+root - INFO - tried to print obj with id: 18
+root - INFO -     loop index: 0, ID: 18
+root - INFO -        response to delete: <Response [200]>
+root - INFO -        list after delete: []
+root - INFO - finished iterating over: [], leftover IDs (should be all gone): []
+root - INFO - 
+root - INFO - tried to print obj with id: 3
+root - INFO - tried to print obj with id: 4
+root - INFO - tried to print obj with id: 5
+root - INFO - created_ids after a delete post scenario: defaultdict(<class 'list'>, {'projects/1/tasks': [], 'todos': [], 'categories': [3, 4, 5]})
+root - INFO - ====================== done scenario ===========================
+root - INFO - 
+root - INFO - 
+root - INFO - 
+root - INFO - searching for priority: LOW
+root - INFO - tried to print obj with id: 3
+root - INFO - category: 3
+root - INFO - tried to print obj with id: 4
+root - INFO - category: 4
+root - INFO - tried to print obj with id: 5
+root - INFO - category: 5
+root - INFO - tried to print obj with id: 5
+root - INFO - found priority attached to  object: 5
+root - INFO - OLD PRIORITY: LOW, category ID: 5
+root - INFO - searching for priority: LOW
+root - INFO - tried to print obj with id: 3
+root - INFO - category: 3
+root - INFO - tried to print obj with id: 4
+root - INFO - category: 4
+root - INFO - tried to print obj with id: 5
+root - INFO - category: 5
+root - INFO - tried to print obj with id: 5
+root - INFO - found priority attached to  object: 5
+root - INFO - response to post categories/5/todos: {'id': '19', 'title': 'task3', 'doneStatus': 'false', 'description': 'LOW Priority Tasks'}
+root - INFO - searching for priority: LOW
+root - INFO - tried to print obj with id: 3
+root - INFO - category: 3
+root - INFO - tried to print obj with id: 4
+root - INFO - category: 4
+root - INFO - tried to print obj with id: 5
+root - INFO - category: 5
+root - INFO - tried to print obj with id: 5
+root - INFO - found priority attached to  object: 5
+root - INFO - todo_id_from_response, response: [{'id': '1', 'title': 'Office', 'description': ''}, {'id': '4', 'title': 'Priority: MEDIUM', 'description': 'MEDIUM Priority Tasks', 'todos': [{'id': '18'}, {'id': '10'}]}, {'id': '2', 'title': 'Home', 'description': ''}, {'id': '3', 'title': 'Priority: HIGH', 'description': 'HIGH Priority Tasks', 'todos': [{'id': '12'}, {'id': '16'}, {'id': '14'}]}, {'id': '5', 'title': 'Priority: LOW', 'description': 'LOW Priority Tasks', 'todos': [{'id': '19'}]}]
+root - INFO - old ID: 19,  new ID: 19
+root - INFO - response ID: 19,  new ID: 19
+root - INFO - todo_id_from_response, response: [{'id': '1', 'title': 'Office', 'description': ''}, {'id': '4', 'title': 'Priority: MEDIUM', 'description': 'MEDIUM Priority Tasks', 'todos': [{'id': '18'}, {'id': '10'}]}, {'id': '2', 'title': 'Home', 'description': ''}, {'id': '3', 'title': 'Priority: HIGH', 'description': 'HIGH Priority Tasks', 'todos': [{'id': '12'}, {'id': '16'}, {'id': '14'}]}, {'id': '5', 'title': 'Priority: LOW', 'description': 'LOW Priority Tasks', 'todos': [{'id': '19'}]}]
+root - INFO - searching for priority: LOW
+root - INFO - tried to print obj with id: 3
+root - INFO - category: 3
+root - INFO - tried to print obj with id: 4
+root - INFO - category: 4
+root - INFO - tried to print obj with id: 5
+root - INFO - category: 5
+root - INFO - tried to print obj with id: 5
+root - INFO - found priority attached to  object: 5
+root - INFO - DELETE: http://localhost:4567/categories/5/todos/19
+root - INFO - <Response [200]>
+root - INFO - DELETE: http://localhost:4567/todos/19
+root - INFO - <Response [200]>
+root - INFO - 
+root - INFO - searching for priority: LOW
+root - INFO - tried to print obj with id: 3
+root - INFO - category: 3
+root - INFO - tried to print obj with id: 4
+root - INFO - category: 4
+root - INFO - tried to print obj with id: 5
+root - INFO - category: 5
+root - INFO - tried to print obj with id: 5
+root - INFO - found priority attached to  object: 5
+root - INFO - url to create_task: http://localhost:4567/categories/5/todos
+root - INFO - response to post categories/5/todos: {'id': '20', 'title': 'task3', 'doneStatus': 'false', 'description': 'LOW Priority Tasks'}
+root - INFO - searching for priority: LOW
+root - INFO - tried to print obj with id: 3
+root - INFO - category: 3
+root - INFO - tried to print obj with id: 4
+root - INFO - category: 4
+root - INFO - tried to print obj with id: 5
+root - INFO - category: 5
+root - INFO - tried to print obj with id: 5
+root - INFO - found priority attached to  object: 5
+root - INFO - todo_id_from_response, response: [{'id': '1', 'title': 'Office', 'description': ''}, {'id': '4', 'title': 'Priority: MEDIUM', 'description': 'MEDIUM Priority Tasks', 'todos': [{'id': '18'}, {'id': '10'}]}, {'id': '2', 'title': 'Home', 'description': ''}, {'id': '3', 'title': 'Priority: HIGH', 'description': 'HIGH Priority Tasks', 'todos': [{'id': '12'}, {'id': '16'}, {'id': '14'}]}, {'id': '5', 'title': 'Priority: LOW', 'description': 'LOW Priority Tasks', 'todos': [{'id': '20'}]}]
+root - INFO - old ID: 20,  new ID: 20
+root - INFO - response ID: 20,  new ID: 20
+root - INFO - just tried to post the NEW TODO with NEW PRIORITY
+root - INFO - 
+root - INFO - Then: url we get from for verification: http://localhost:4567/categories/5/todos
+root - INFO - the response body: {'id': '20', 'title': 'task3', 'doneStatus': 'false', 'description': 'LOW Priority Tasks'}
+root - INFO - the stored response: {'id': '20', 'title': 'task3', 'doneStatus': 'false', 'description': 'LOW Priority Tasks'}
+root - INFO - after scenario: <Scenario "(Alternate flow) Update a valid task with the same priority -- @1.3 ">
+root - INFO - endpoint: projects/1/tasks, IDs I am about to delete: []
+root - INFO - tried to print obj with id: 20
+root - INFO - endpoint: todos, IDs I am about to delete: [20]
+root - INFO - tried to print obj with id: 20
+root - INFO -     loop index: 0, ID: 20
+root - INFO -        response to delete: <Response [200]>
+root - INFO -        list after delete: []
+root - INFO - finished iterating over: [], leftover IDs (should be all gone): []
+root - INFO - 
+root - INFO - tried to print obj with id: 3
+root - INFO - tried to print obj with id: 4
+root - INFO - tried to print obj with id: 5
+root - INFO - created_ids after a delete post scenario: defaultdict(<class 'list'>, {'projects/1/tasks': [], 'todos': [], 'categories': [3, 4, 5]})
+root - INFO - ====================== done scenario ===========================
+root - INFO - 
+root - INFO - 
+root - INFO - 
+root - INFO - searching for priority: HIGH
+root - INFO - tried to print obj with id: 3
+root - INFO - category: 3
+root - INFO - tried to print obj with id: 3
+root - INFO - found priority attached to  object: 3
+root - INFO - OLD PRIORITY: HIGH, category ID: 3
+root - INFO - searching for priority: HIGH
+root - INFO - tried to print obj with id: 3
+root - INFO - category: 3
+root - INFO - tried to print obj with id: 3
+root - INFO - found priority attached to  object: 3
+root - INFO - response to post categories/3/todos: {'id': '21', 'title': 'task1', 'doneStatus': 'false', 'description': 'HIGH Priority Tasks'}
+root - INFO - searching for priority: HIGH
+root - INFO - tried to print obj with id: 3
+root - INFO - category: 3
+root - INFO - tried to print obj with id: 3
+root - INFO - found priority attached to  object: 3
+root - INFO - todo_id_from_response, response: [{'id': '1', 'title': 'Office', 'description': ''}, {'id': '4', 'title': 'Priority: MEDIUM', 'description': 'MEDIUM Priority Tasks', 'todos': [{'id': '18'}, {'id': '10'}]}, {'id': '2', 'title': 'Home', 'description': ''}, {'id': '3', 'title': 'Priority: HIGH', 'description': 'HIGH Priority Tasks', 'todos': [{'id': '12'}, {'id': '21'}, {'id': '16'}, {'id': '14'}]}, {'id': '5', 'title': 'Priority: LOW', 'description': 'LOW Priority Tasks', 'todos': [{'id': '20'}]}]
+root - INFO - old ID: 21,  new ID: 21
+root - INFO - response ID: 21,  new ID: 21
+root - INFO - todo_id_from_response, response: [{'id': '1', 'title': 'Office', 'description': ''}, {'id': '4', 'title': 'Priority: MEDIUM', 'description': 'MEDIUM Priority Tasks', 'todos': [{'id': '18'}, {'id': '10'}]}, {'id': '2', 'title': 'Home', 'description': ''}, {'id': '3', 'title': 'Priority: HIGH', 'description': 'HIGH Priority Tasks', 'todos': [{'id': '12'}, {'id': '21'}, {'id': '16'}, {'id': '14'}]}, {'id': '5', 'title': 'Priority: LOW', 'description': 'LOW Priority Tasks', 'todos': [{'id': '20'}]}]
+root - INFO - before assert all in error flow showing that newPriority: nope_1 d.n exist
+root - INFO - response: [{'id': '1', 'title': 'Office', 'description': ''}, {'id': '4', 'title': 'Priority: MEDIUM', 'description': 'MEDIUM Priority Tasks', 'todos': [{'id': '18'}, {'id': '10'}]}, {'id': '2', 'title': 'Home', 'description': ''}, {'id': '3', 'title': 'Priority: HIGH', 'description': 'HIGH Priority Tasks', 'todos': [{'id': '12'}, {'id': '21'}, {'id': '16'}, {'id': '14'}]}, {'id': '5', 'title': 'Priority: LOW', 'description': 'LOW Priority Tasks', 'todos': [{'id': '20'}]}]
+root - INFO - after assert all
+root - INFO - fxn: categories_with_priorities: using categories: [CategoryWith obj: Priority: Priority: , created_id: 1, CategoryWith obj: Priority: Priority: MEDIUM Priority Tasks, created_id: 4, CategoryWith obj: Priority: Priority: , created_id: 2, CategoryWith obj: Priority: Priority: HIGH Priority Tasks, created_id: 3, CategoryWith obj: Priority: Priority: LOW Priority Tasks, created_id: 5]
+root - INFO - searching for priority: nope_1
+root - INFO - category: CategoryWith obj: Priority: Priority: , created_id: 1
+root - INFO - category: CategoryWith obj: Priority: Priority: MEDIUM Priority Tasks, created_id: 4
+root - INFO - category: CategoryWith obj: Priority: Priority: , created_id: 2
+root - INFO - category: CategoryWith obj: Priority: Priority: HIGH Priority Tasks, created_id: 3
+root - INFO - category: CategoryWith obj: Priority: Priority: LOW Priority Tasks, created_id: 5
+root - INFO - error
+root - INFO - searching for priority: HIGH
+root - INFO - tried to print obj with id: 3
+root - INFO - category: 3
+root - INFO - tried to print obj with id: 3
+root - INFO - found priority attached to  object: 3
+root - INFO - DELETE: http://localhost:4567/categories/3/todos/21
+root - INFO - <Response [200]>
+root - INFO - DELETE: http://localhost:4567/todos/21
+root - INFO - <Response [200]>
+root - INFO - 
+root - INFO - after scenario: <Scenario "(Error flow) Update a valid task with non-existant priority -- @1.1 ">
+root - INFO - endpoint: projects/1/tasks, IDs I am about to delete: []
+root - INFO - endpoint: todos, IDs I am about to delete: []
+root - INFO - tried to print obj with id: 3
+root - INFO - tried to print obj with id: 4
+root - INFO - tried to print obj with id: 5
+root - INFO - created_ids after a delete post scenario: defaultdict(<class 'list'>, {'projects/1/tasks': [], 'todos': [], 'categories': [3, 4, 5]})
+root - INFO - ====================== done scenario ===========================
+root - INFO - 
+root - INFO - 
+root - INFO - 
+root - INFO - searching for priority: MEDIUM
+root - INFO - tried to print obj with id: 3
+root - INFO - category: 3
+root - INFO - tried to print obj with id: 4
+root - INFO - category: 4
+root - INFO - tried to print obj with id: 4
+root - INFO - found priority attached to  object: 4
+root - INFO - OLD PRIORITY: MEDIUM, category ID: 4
+root - INFO - searching for priority: MEDIUM
+root - INFO - tried to print obj with id: 3
+root - INFO - category: 3
+root - INFO - tried to print obj with id: 4
+root - INFO - category: 4
+root - INFO - tried to print obj with id: 4
+root - INFO - found priority attached to  object: 4
+root - INFO - response to post categories/4/todos: {'id': '22', 'title': 'task2', 'doneStatus': 'false', 'description': 'MEDIUM Priority Tasks'}
+root - INFO - searching for priority: MEDIUM
+root - INFO - tried to print obj with id: 3
+root - INFO - category: 3
+root - INFO - tried to print obj with id: 4
+root - INFO - category: 4
+root - INFO - tried to print obj with id: 4
+root - INFO - found priority attached to  object: 4
+root - INFO - todo_id_from_response, response: [{'id': '1', 'title': 'Office', 'description': ''}, {'id': '4', 'title': 'Priority: MEDIUM', 'description': 'MEDIUM Priority Tasks', 'todos': [{'id': '22'}, {'id': '18'}, {'id': '10'}]}, {'id': '2', 'title': 'Home', 'description': ''}, {'id': '3', 'title': 'Priority: HIGH', 'description': 'HIGH Priority Tasks', 'todos': [{'id': '12'}, {'id': '16'}, {'id': '14'}]}, {'id': '5', 'title': 'Priority: LOW', 'description': 'LOW Priority Tasks', 'todos': [{'id': '20'}]}]
+root - INFO - old ID: 22,  new ID: 22
+root - INFO - response ID: 22,  new ID: 22
+root - INFO - todo_id_from_response, response: [{'id': '1', 'title': 'Office', 'description': ''}, {'id': '4', 'title': 'Priority: MEDIUM', 'description': 'MEDIUM Priority Tasks', 'todos': [{'id': '22'}, {'id': '18'}, {'id': '10'}]}, {'id': '2', 'title': 'Home', 'description': ''}, {'id': '3', 'title': 'Priority: HIGH', 'description': 'HIGH Priority Tasks', 'todos': [{'id': '12'}, {'id': '16'}, {'id': '14'}]}, {'id': '5', 'title': 'Priority: LOW', 'description': 'LOW Priority Tasks', 'todos': [{'id': '20'}]}]
+root - INFO - before assert all in error flow showing that newPriority: nope_2 d.n exist
+root - INFO - response: [{'id': '1', 'title': 'Office', 'description': ''}, {'id': '4', 'title': 'Priority: MEDIUM', 'description': 'MEDIUM Priority Tasks', 'todos': [{'id': '22'}, {'id': '18'}, {'id': '10'}]}, {'id': '2', 'title': 'Home', 'description': ''}, {'id': '3', 'title': 'Priority: HIGH', 'description': 'HIGH Priority Tasks', 'todos': [{'id': '12'}, {'id': '16'}, {'id': '14'}]}, {'id': '5', 'title': 'Priority: LOW', 'description': 'LOW Priority Tasks', 'todos': [{'id': '20'}]}]
+root - INFO - after assert all
+root - INFO - fxn: categories_with_priorities: using categories: [CategoryWith obj: Priority: Priority: , created_id: 1, CategoryWith obj: Priority: Priority: MEDIUM Priority Tasks, created_id: 4, CategoryWith obj: Priority: Priority: , created_id: 2, CategoryWith obj: Priority: Priority: HIGH Priority Tasks, created_id: 3, CategoryWith obj: Priority: Priority: LOW Priority Tasks, created_id: 5]
+root - INFO - searching for priority: nope_2
+root - INFO - category: CategoryWith obj: Priority: Priority: , created_id: 1
+root - INFO - category: CategoryWith obj: Priority: Priority: MEDIUM Priority Tasks, created_id: 4
+root - INFO - category: CategoryWith obj: Priority: Priority: , created_id: 2
+root - INFO - category: CategoryWith obj: Priority: Priority: HIGH Priority Tasks, created_id: 3
+root - INFO - category: CategoryWith obj: Priority: Priority: LOW Priority Tasks, created_id: 5
+root - INFO - error
+root - INFO - searching for priority: MEDIUM
+root - INFO - tried to print obj with id: 3
+root - INFO - category: 3
+root - INFO - tried to print obj with id: 4
+root - INFO - category: 4
+root - INFO - tried to print obj with id: 4
+root - INFO - found priority attached to  object: 4
+root - INFO - DELETE: http://localhost:4567/categories/4/todos/22
+root - INFO - <Response [200]>
+root - INFO - DELETE: http://localhost:4567/todos/22
+root - INFO - <Response [200]>
+root - INFO - 
+root - INFO - after scenario: <Scenario "(Error flow) Update a valid task with non-existant priority -- @1.2 ">
+root - INFO - endpoint: projects/1/tasks, IDs I am about to delete: []
+root - INFO - endpoint: todos, IDs I am about to delete: []
+root - INFO - tried to print obj with id: 3
+root - INFO - tried to print obj with id: 4
+root - INFO - tried to print obj with id: 5
+root - INFO - created_ids after a delete post scenario: defaultdict(<class 'list'>, {'projects/1/tasks': [], 'todos': [], 'categories': [3, 4, 5]})
+root - INFO - ====================== done scenario ===========================
+root - INFO - 
+root - INFO - 
+root - INFO - 
+root - INFO - searching for priority: LOW
+root - INFO - tried to print obj with id: 3
+root - INFO - category: 3
+root - INFO - tried to print obj with id: 4
+root - INFO - category: 4
+root - INFO - tried to print obj with id: 5
+root - INFO - category: 5
+root - INFO - tried to print obj with id: 5
+root - INFO - found priority attached to  object: 5
+root - INFO - OLD PRIORITY: LOW, category ID: 5
+root - INFO - searching for priority: LOW
+root - INFO - tried to print obj with id: 3
+root - INFO - category: 3
+root - INFO - tried to print obj with id: 4
+root - INFO - category: 4
+root - INFO - tried to print obj with id: 5
+root - INFO - category: 5
+root - INFO - tried to print obj with id: 5
+root - INFO - found priority attached to  object: 5
+root - INFO - response to post categories/5/todos: {'id': '23', 'title': 'task3', 'doneStatus': 'false', 'description': 'LOW Priority Tasks'}
+root - INFO - searching for priority: LOW
+root - INFO - tried to print obj with id: 3
+root - INFO - category: 3
+root - INFO - tried to print obj with id: 4
+root - INFO - category: 4
+root - INFO - tried to print obj with id: 5
+root - INFO - category: 5
+root - INFO - tried to print obj with id: 5
+root - INFO - found priority attached to  object: 5
+root - INFO - todo_id_from_response, response: [{'id': '1', 'title': 'Office', 'description': ''}, {'id': '4', 'title': 'Priority: MEDIUM', 'description': 'MEDIUM Priority Tasks', 'todos': [{'id': '18'}, {'id': '10'}]}, {'id': '2', 'title': 'Home', 'description': ''}, {'id': '3', 'title': 'Priority: HIGH', 'description': 'HIGH Priority Tasks', 'todos': [{'id': '12'}, {'id': '16'}, {'id': '14'}]}, {'id': '5', 'title': 'Priority: LOW', 'description': 'LOW Priority Tasks', 'todos': [{'id': '23'}, {'id': '20'}]}]
+root - INFO - old ID: 23,  new ID: 23
+root - INFO - response ID: 23,  new ID: 23
+root - INFO - todo_id_from_response, response: [{'id': '1', 'title': 'Office', 'description': ''}, {'id': '4', 'title': 'Priority: MEDIUM', 'description': 'MEDIUM Priority Tasks', 'todos': [{'id': '18'}, {'id': '10'}]}, {'id': '2', 'title': 'Home', 'description': ''}, {'id': '3', 'title': 'Priority: HIGH', 'description': 'HIGH Priority Tasks', 'todos': [{'id': '12'}, {'id': '16'}, {'id': '14'}]}, {'id': '5', 'title': 'Priority: LOW', 'description': 'LOW Priority Tasks', 'todos': [{'id': '23'}, {'id': '20'}]}]
+root - INFO - before assert all in error flow showing that newPriority: nope_3 d.n exist
+root - INFO - response: [{'id': '1', 'title': 'Office', 'description': ''}, {'id': '4', 'title': 'Priority: MEDIUM', 'description': 'MEDIUM Priority Tasks', 'todos': [{'id': '18'}, {'id': '10'}]}, {'id': '2', 'title': 'Home', 'description': ''}, {'id': '3', 'title': 'Priority: HIGH', 'description': 'HIGH Priority Tasks', 'todos': [{'id': '12'}, {'id': '16'}, {'id': '14'}]}, {'id': '5', 'title': 'Priority: LOW', 'description': 'LOW Priority Tasks', 'todos': [{'id': '23'}, {'id': '20'}]}]
+root - INFO - after assert all
+root - INFO - fxn: categories_with_priorities: using categories: [CategoryWith obj: Priority: Priority: , created_id: 1, CategoryWith obj: Priority: Priority: MEDIUM Priority Tasks, created_id: 4, CategoryWith obj: Priority: Priority: , created_id: 2, CategoryWith obj: Priority: Priority: HIGH Priority Tasks, created_id: 3, CategoryWith obj: Priority: Priority: LOW Priority Tasks, created_id: 5]
+root - INFO - searching for priority: nope_3
+root - INFO - category: CategoryWith obj: Priority: Priority: , created_id: 1
+root - INFO - category: CategoryWith obj: Priority: Priority: MEDIUM Priority Tasks, created_id: 4
+root - INFO - category: CategoryWith obj: Priority: Priority: , created_id: 2
+root - INFO - category: CategoryWith obj: Priority: Priority: HIGH Priority Tasks, created_id: 3
+root - INFO - category: CategoryWith obj: Priority: Priority: LOW Priority Tasks, created_id: 5
+root - INFO - error
+root - INFO - searching for priority: LOW
+root - INFO - tried to print obj with id: 3
+root - INFO - category: 3
+root - INFO - tried to print obj with id: 4
+root - INFO - category: 4
+root - INFO - tried to print obj with id: 5
+root - INFO - category: 5
+root - INFO - tried to print obj with id: 5
+root - INFO - found priority attached to  object: 5
+root - INFO - DELETE: http://localhost:4567/categories/5/todos/23
+root - INFO - <Response [200]>
+root - INFO - DELETE: http://localhost:4567/todos/23
+root - INFO - <Response [200]>
+root - INFO - 
+root - INFO - after scenario: <Scenario "(Error flow) Update a valid task with non-existant priority -- @1.3 ">
+root - INFO - endpoint: projects/1/tasks, IDs I am about to delete: []
+root - INFO - endpoint: todos, IDs I am about to delete: []
+root - INFO - tried to print obj with id: 3
+root - INFO - tried to print obj with id: 4
+root - INFO - tried to print obj with id: 5
+root - INFO - created_ids after a delete post scenario: defaultdict(<class 'list'>, {'projects/1/tasks': [], 'todos': [], 'categories': [3, 4, 5]})
+root - INFO - ====================== done scenario ===========================
+root - INFO - 
+root - INFO - 
+root - INFO - 
+root - INFO - endpoint: projects/1/tasks, IDs I am about to delete: []
+root - INFO - endpoint: todos, IDs I am about to delete: []
+root - INFO - tried to print obj with id: 3
+root - INFO - tried to print obj with id: 4
+root - INFO - tried to print obj with id: 5
+root - INFO - endpoint: categories, IDs I am about to delete: [3, 4, 5]
+root - INFO - tried to print obj with id: 3
+root - INFO -     loop index: 0, ID: 3
+root - INFO -        response to delete: <Response [200]>
+root - INFO - tried to print obj with id: 4
+root - INFO - tried to print obj with id: 5
+root - INFO -        list after delete: [4, 5]
+root - INFO - tried to print obj with id: 5
+root - INFO -     loop index: 1, ID: 5
+root - INFO -        response to delete: <Response [200]>
+root - INFO - tried to print obj with id: 4
+root - INFO -        list after delete: [4]
+root - INFO - tried to print obj with id: 4
+root - INFO - tried to print obj with id: 4
+root - INFO - finished iterating over: [4], leftover IDs (should be all gone): [4]
+root - INFO - 
+root - INFO - tried to print obj with id: 4
+root - INFO -     loop index: 0, ID: 4
+root - INFO -        response to delete: <Response [200]>
+root - INFO -        list after delete: []
+root - INFO - finished iterating over: [], leftover IDs (should be all gone): []
+root - INFO - 
+root - INFO - created_ids after a delete post scenario: defaultdict(<class 'list'>, {'projects/1/tasks': [], 'todos': [], 'categories': []})
+root - INFO - ====================== done scenario ===========================
+root - INFO - 
+root - INFO - 
+root - INFO - 
