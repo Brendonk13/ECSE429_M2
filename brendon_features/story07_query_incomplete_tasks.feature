@@ -31,16 +31,14 @@ Scenario Outline: (Normal flow) Query all incomplete tasks
         | 1          | task3 | true       |
 
 
-# Scenario Outline: (Error flow) Query all incomplete tasks
-#     Given The class <project_id> exists
-#     And The class has an incomplete task with title <title>
-#     When I view all incomplete tasks
-#     Then The task with title <title> should exist and be marked incomplete
-# 
-#     Examples: Incomplete Tasks
-#         | project_id | title |
-#         | 1          | task1 |
-#         | 1          | task2 |
-#         | 1          | task3 |
-# 
-# 
+Scenario Outline: (Error flow) Query specific non-existant task
+    Given The class <project_id> exists
+    When I view all <doneStatus> tasks
+    Then The task with title <title> will be not present
+
+    Examples: Incomplete Tasks
+        | project_id | title | doneStatus |
+        | 1          | task1 | true       |
+        | 1          | task2 | false      |
+        | 1          | task3 | true       |
+

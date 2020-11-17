@@ -3,6 +3,7 @@ import requests
 import logging
 
 
+# ===================== helpers ================================================
 def get_done_status(doneStatus):
     return True if doneStatus == 'true' else False
 
@@ -32,11 +33,7 @@ def value_in_response(searched_for_value, response_body, key=None):
 
 def project_exists(project_id, projects):
     return value_in_response(project_id, projects, key='id')
-    # return any(
-    #     project['id'] == project_id
-    #     for project in projects
-    # )
-
+# ===================== helpers ================================================
 
 
 
@@ -98,11 +95,6 @@ def step_impl(context, title, doneStatus):
     assert False
 
 
-
-
-# @when('I view all complete tasks')
-# def step_impl(context):
-#     response = get_all_todos(context)
-#     context.complete_tasks = response.json()['todos']
-#     logging.info('all complete tasks: {}'.format(context.incomplete_tasks))
-#     assert response.ok
+@then('The task with title {title} will be not present')
+def step_impl(context, title):
+    assert not value_in_response(title, context.tasks, key='title')
