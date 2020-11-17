@@ -2,51 +2,7 @@ from behave import *
 # NOTE: conversion from feature ie: "Given I have three precreated priority levels in my system" IS A MACRO REGISTER W
 import requests
 import logging
-from helpers.story_9 import Task, create_task, setup_context_url_stuff, todo_id_from_response, category_id_from_priority, all_categories_response, CategoryDoesNotExist
-
-
-
-def create_todo_with_priority(context, priority, title):
-    description = '{} Priority Tasks'.format(priority)
-
-    priority_category_id = category_id_from_priority(context, priority)
-    endpoint = 'categories/{}/todos'.format(priority_category_id)
-    setup_context_url_stuff(context, endpoint)
-
-    task = create_task(context, title, description, priority)
-
-    # add resources that need to be deleted to restore state
-    response = all_categories_response(context)
-    todo_id = todo_id_from_response(response, priority_category_id)
-    endpoint = 'categories/{}/todos'.format(priority_category_id)
-
-    return task
-
-
-def delete_todo_with_priority(context, priority, todo_id):
-    '''
-        to do this we need to delete 2 resources:
-        categories/category_id/todos/todo_id
-        todos/todo_id
-    '''
-    category_id = category_id_from_priority(context, priority)
-    endpoint = 'categories/{}/todos/{}'.format(category_id, todo_id)
-
-    setup_context_url_stuff(context, endpoint)
-    logging.info(f'DELETE: {context.url}')
-    response = requests.delete(context.url)
-    logging.info(response)
-    assert response.ok
-
-    url = context.base_url + 'todos/{}'.format(todo_id)
-    logging.info(f'DELETE: {url}')
-    response = requests.delete(url)
-    logging.info(response)
-    assert response.ok
-    logging.info('')
-# ===================== HELPERS ===================================================
-
-
+from helpers.story_9 import Task, create_task, setup_context_url_stuff, todo_id_from_response, category_id_from_priority, all_categories_response, CategoryDoesNotExist, create_todo_with_priority, delete_todo_with_priority
 
 
 

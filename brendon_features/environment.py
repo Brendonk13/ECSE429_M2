@@ -81,7 +81,8 @@ def before_feature(context, feature):
 
 
 def after_feature(context, feature):
-    if feature.filename == 'story09_change_task_priority.feature':
+    log_file = log_file_name(feature.filename)
+    if log_file in ('story9.log', 'story8.log'):
         the_created_ids = context.created_ids.copy()
         cleanup_created_ids(context, the_created_ids.items(), after_scenario = False)
 

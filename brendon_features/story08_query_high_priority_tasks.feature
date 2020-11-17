@@ -18,7 +18,7 @@
 #         | task1 | false      | HIGH     |
 #         | task2 | false      | HIGH     |
 #         | task3 | false      | HIGH     |
-
+# 
 
 # Scenario Outline: (Alternate flow) Query all complete HIGH priority tasks
 #     # already have

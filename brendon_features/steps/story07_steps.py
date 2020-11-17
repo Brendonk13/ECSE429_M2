@@ -1,11 +1,10 @@
 from behave import *
 import requests
 import logging
+from helpers.story_9 import get_done_status
 
 
 # ===================== helpers ================================================
-def get_done_status(doneStatus):
-    return True if doneStatus == 'true' else False
 
 
 def get_all_todos(context):
