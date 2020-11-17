@@ -11,8 +11,13 @@ Group: AutoProj 25
 ## Option 1) Run all tests (all features/ user stories)
 > behave -v
 
-## Option 2) Run a single feature file manually
-> behave -i <story_feature_filename>.feature
+Get summary log using:
+> behave -f null | tee logs_normal_order.txt
 
-## Option 3) Run all tests in random order
+## Option 2) Run all tests in random order
 > From root directory containing README.md: bash random_order_behave.sh
+
+Summary log recorded in logs_random_order.txt
+
+## Option 3) Run a single feature file manually
+> behave -i <story_feature_filename>.feature
