@@ -1,0 +1,42 @@
+
+--------story06_remove_todo_list.feature--------
+1 feature passed, 0 failed, 0 skipped
+6 scenarios passed, 0 failed, 0 skipped
+18 steps passed, 0 failed, 0 skipped, 0 undefined
+Took 0m0.140s
+
+--------story01_categorize_tasks_priority.feature--------
+1 feature passed, 0 failed, 0 skipped
+9 scenarios passed, 0 failed, 0 skipped
+39 steps passed, 0 failed, 0 skipped, 0 undefined
+Took 0m0.688s
+
+--------story02_add_task_course.feature--------
+1 feature passed, 0 failed, 0 skipped
+10 scenarios passed, 0 failed, 0 skipped
+46 steps passed, 0 failed, 0 skipped, 0 undefined
+Took 0m0.479s
+
+--------story10_change_task_description.feature--------
+1 feature passed, 0 failed, 0 skipped
+11 scenarios passed, 0 failed, 0 skipped
+39 steps passed, 0 failed, 0 skipped, 0 undefined
+Took 0m0.364s
+
+--------story05_create_todo_list.feature--------
+1 feature passed, 0 failed, 0 skipped
+8 scenarios passed, 0 failed, 0 skipped
+16 steps passed, 0 failed, 0 skipped, 0 undefined
+Took 0m0.177s
+
+--------story04_remove_task_course.feature--------
+1 feature passed, 0 failed, 0 skipped
+8 scenarios passed, 0 failed, 0 skipped
+41 steps passed, 0 failed, 0 skipped, 0 undefined
+Took 0m0.390s
+
+--------story03_mark_task_done.feature--------
+1 feature passed, 0 failed, 0 skipped
+8 scenarios passed, 0 failed, 0 skipped
+24 steps passed, 0 failed, 0 skipped, 0 undefined
+Took 0m0.267s

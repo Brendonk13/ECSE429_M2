@@ -40,4 +40,4 @@ def step_impl(context):
 
 # ---------------------- scenario 3 - invalid course ---------------------------
 
-# all steps defined previously and in story01 and story10# all steps previously defined and in other stories
+# all steps previously defined and in other stories
