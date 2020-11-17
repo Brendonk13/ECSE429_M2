@@ -16,7 +16,7 @@ Or, get summary log (*logs_normal_order.txt*) using:
 
 ## Option 2) Run all tests in random order
 From root directory containing README.md: 
-> bash random_order_behave.sh
+> .\random_order_behave.sh
 
 Summary log recorded in *logs_random_order.txt*
 
